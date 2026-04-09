@@ -1,0 +1,175 @@
+﻿
+=== SLIDE 1 ===
+Efficient Test Suite Management                                          cont … 
+2/23/2021 
+1 
+Prof. Durga Prasad MohapatraProfessorDept. of CSE, NIT Rourkela
+
+=== SLIDE 2 ===
+Risk-Based Prioritization 
+It is a well defined process that prioritizes modules for testing. Uses risk analysis to highlight potential problem areas, whose failure have adverse consequences. Testers use this risk analysis to select the most crucial tests.    
+2/23/2021 
+2
+
+=== SLIDE 3 ===
+Risk-Based Prioritization    cont … 
+This technique is used to prioritize the test cases based on some potential problems which may occur during the project. It uses:Probability of occurrence/fault likelihood: It indicates the probability of occurrence of a problem.Severity of impact/failure impact: If the problem has occurred, how much impact does it have on the software.
+
+=== SLIDE 4 ===
+Risk-Based Prioritization       cont … 
+Risk analysis uses these two components by first listing the potential problems and then, assigning a probability and severity value for each identified problem, as shown in next Table. By ranking the results in this table in the form of risk exposure, testers can identify the potential against which  the software needs to be tested and executed first.
+
+=== SLIDE 5 ===
+Risk-Based Prioritization       cont … 
+A risk analysis table consists of the following columns:Problem ID: A unique identifier to facilitate referring to a risk factor.Potential problem: Brief description of the problem.Uncertainty factor: It is the probability of occurrence of the problem. Probability values are on a scale of 1(low)  to 10(high).Severity of impact: Severity values on a scale of 1(low) to 10(high).Risk exposure: Product of probability of occurrence and severity of impact.   
+2/23/2021 
+5
+
+=== SLIDE 6 ===
+2/23/2021 
+6 
+Table 1 . A sample risk analysis table
+
+=== SLIDE 7 ===
+Inference from the table 
+The problems / modules given in the previous table can be prioritized in the order of P5, P4, P2, P3, P1, based on the risk exposure values.
+
+=== SLIDE 8 ===
+Prioritization Based on Operational Profiles 
+In this approach, the test planning is done based on the operational profiles of the important functions which are of use to the customer. An operational profile is a set of tasks performed by the system and their probabilities of occurrence. After estimating the operational profiles, testers decide the total number of test cases, keeping in view the costs and resource constraints.  
+2/23/2021 
+8
+
+=== SLIDE 9 ===
+Prioritization using Slices 
+During regression testing, the modified program is executed on all existing regression test cases to check that it still works the same way as the original program, except where a change is excepted.But re-running the test suite for every change in the software makes regression testing a time-consuming process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+2/23/2021 
+9
+
+=== SLIDE 10 ===
+Prioritization using Slices   cont … 
+If we can find the portion of the software which has been affected with the change in software, then we can prioritize the test cases based on this information. This is called the slicing technique.
+
+=== SLIDE 11 ===
+Execution Slice 
+The set of statements executed  under a test case is called the execution slice of the program. Please refer to the following program. Table 2 shows the test cases for the given program.
+
+=== SLIDE 12 ===
+Fig 1. Example program for execution 
+2/23/2021 
+12 
+                      Table  2   Test cases
+
+=== SLIDE 13 ===
+Prioritization using Slices   cont … 
+T1 and T2 produce correct results. On the other hand, T3 produces an incorrect result. Syntactically, it is correct, but an employee with the empid  ‘0’ will not get any salary, even if his basic salary is read as input. So it has to be modified.
+
+=== SLIDE 14 ===
+Prioritization using Slices   cont … 
+Suppose S3 is modified as [if(basic>5000 && empid>0)]. So, for T1, T2, and T3, the program would be rerun to validate whether the change in S3 has introduced new bugs or not.But, if there is a change in S7,[da = (basic*25)/100; instead of da = (basic*15)/100;], then only T2 will be rerun.  
+2/23/2021 
+14
+
+=== SLIDE 15 ===
+Prioritization using Slices   cont … 
+So in the execution slice, we will have less number of statements. The execution slice is highlighted in the given code segment.
+
+=== SLIDE 16 ===
+Example
+
+=== SLIDE 17 ===
+Dynamic Slice 
+The set of statements under a test case having an effect on the program output is called the dynamic slice of the program with respect to the out-put variables. 
+2/23/2021 
+17
+
+=== SLIDE 18 ===
+Example
+
+=== SLIDE 19 ===
+Test Cases  
+                   Table 3: Test cases for the given program. 
+2/23/2021 
+19
+
+=== SLIDE 20 ===
+Dynamic Slice   cont … 
+T1, T2 and T3 will run correctly but if some modification is done in S10.1 [say I = 50], then this change will not affect the output variable. So, there is no need to rerun any of the test cases. On the other hand, if S10 is changed [say, sum =a* b+sum], then this change will affect the output variable ’sum’.So there is a need to rerun T3. The dynamic slice is highlighted in the code segment (S1, S2,S10, S12).
+
+=== SLIDE 21 ===
+2/23/2021 
+21
+
+=== SLIDE 22 ===
+Relevant Slice 
+The set of statements that were executed under a test case and did not affect the output, but have the potential to affect the output produced by a test case, is known as the relevant slice of the program.For example, consider the example given in previous figure. 
+2/23/2021 
+22
+
+=== SLIDE 23 ===
+Relevant Slice     cont … 
+Statements S3 and S6 have the potential to affect the output, if modified. On the basis of relevant slices, we can prioritize the test cases. This technique is helpful for prioritizing the regression test suite which saves time and effort for regression testing.
+
+=== SLIDE 24 ===
+Prioritization Based on Requirements 
+This technique is used for prioritization of the system test cases.The system test cases also become too large in number, as this testing is performed on many grounds. Since system test cases are largely dependent on the requirements, the requirements can be analysed to prioritize the test cases.This technique does not consider all the requirements on the same level. Some requirements are more important and critical as compared to others, and these test cases having more weight are executed earlier.  
+2/23/2021 
+24
+
+=== SLIDE 25 ===
+PORT 
+Hema  srikanth et al. have proposed a requirements based test case prioritization technique. It is known as PORT (prioritization of requirements for test).  They have taken the following four factors for analyzing and measuring the criticality of requirements.
+
+=== SLIDE 26 ===
+Factors for analyzing & measuring  criticality of requirements.  
+Customer-assigned priority of requirements: Based on priority, the customer assigns a weight (on scale of 1 to 10) to each requirement. Requirement volatility: This is a rating based on the frequency of change of a  requirement. Developer-perceived implementation complexity: The developer gives more weight to a requirement which he thinks is more difficult to implement.Fault proneness of requirements: This factor is identified based on the previous versions of system. If a requirement in an earlier version of the system has more bugs, i.e. it is error-prone, then this requirement in the current version is given more weight. This factor cannot be considered for a new software. 
+2/23/2021 
+26
+
+=== SLIDE 27 ===
+Prioritization Factor Value  
+Based on these four factor values, a prioritization factor value (PFV) is computed as given below.           PFVi = ∑(FVij  × FWj)    where FVij = Factor value which is the value of factor j corresponding to requirement i, and FWj = Factor weight which is the weight given to factor j.PFV is then used to produce a prioritized  list  of system test cases.
+
+=== SLIDE 28 ===
+Measuring Effectiveness of a prioritized test suite  
+Elbaum et al. developed APFD (average percentage of faults detection) metric that measures the weighted average of percentage of faults detected during the execution of a test suite. Its value ranges from 0 to 100, where a higher value means a faster fault-detection rate.  
+2/23/2021 
+28
+
+=== SLIDE 29 ===
+APFD Metric 
+APFD is a metric to detect how quickly a test suite identifies the faults. It is defined as follows:   APFD = 1- ((TF1+TF2+……..+TFm)/nm) + 1/2n where TFi is the position of the first test in test suite T that exposes fault  i, m is the total number of faults exposed in the system or module under T and n is the total number of test cases in T.
+
+=== SLIDE 30 ===
+2/23/2021 
+30
+
+=== SLIDE 31 ===
+Example 
+Consider a program with 10 faults & test suite of 10 test cases, as shown in below table. 
+2/23/2021 
+31
+
+=== SLIDE 32 ===
+2/23/2021 
+32
+
+=== SLIDE 33 ===
+All the bugs detected are not of the same level of severity. One bug may be more critical as compared to others. Moreover, the cost of executing the test cases also differs. One test case may take more time as compared to others.Thus, APFD does not consider the severity level of the bugs and the cost of executing the test cases in a test suite.
+
+=== SLIDE 34 ===
+Elbaum et al. modified their APFD metric and considered these two factors to form a new metric which is known as cost-cognizant APFD and denoted as APFDc. In APFDc, the total cost incurred in all the test cases is represented on x-axis and the total fault severity detected is taken on y-axis. Thus, it measures the unit of fault severity detected per unit test case cost. 
+Cost-cognizant APFD
+
+=== SLIDE 35 ===
+Summary 
+Discussed in detail the following types of test case prioritization techniques. Risk-Based PrioritizationPrioritization Based on Operational ProfilesPrioritization using Relevant SlicesPrioritization Based on RequirementsDiscussed a metric, called APFD,  to measure the effectiveness of the prioritization technique. Also, discussed a variance of APFD, called cost-cognizant APFD, which is denoted as APFDc.  
+35
+
+=== SLIDE 36 ===
+References  
+Naresh Chauhan, Software Testing: Principles and Practices, (Chapter – 12), Second Edition, Oxford University Press,  2016.
+
+=== SLIDE 37 ===
+Thank you
+

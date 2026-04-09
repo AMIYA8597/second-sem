@@ -1,0 +1,109 @@
+﻿
+=== SLIDE 1 ===
+Testing Object-Oriented Software   cont … 
+. 
+Prof. Durga Prasad MohapatraProfessor Dept. Of CSE, NIT Rourkela
+
+=== SLIDE 2 ===
+UML-Based Software Testing 
+UML is a design and modeling language for object-oriented software and is widely used as a de facto standard that provides techniques to model the software from different perspectives. It supports facilities both for abstract high level modeling and for more detailed low-level modeling.
+
+=== SLIDE 3 ===
+UML-Based Software Testing   cont… 
+It consists of a variety of graphical diagram types that can be extended for specific application areas. It is associated with a formal textual language, OCL (Object Constraint Language). UML also provides support for model-based testing.
+
+=== SLIDE 4 ===
+UML diagrams in software testing 
+The following UML diagrams are helpful in the testing activities mentioned below:Use-case diagrams: testing of system-level functional requirements, acceptance testingClass diagrams: class (module / unit) testing, integration testingSequence diagrams, collaboration diagrams: integration testing, testing of control and interaction between objects, testing of communication protocols between (distributed) objects
+
+=== SLIDE 5 ===
+UML diagrams in software testing   cont… 
+Activity diagrams: testing of work flow and synchronization within the system, white-box testing of control flowState diagrams (state charts): state-based testingPackage diagrams, component diagrams: integration testingDeployment diagrams: system testing
+
+=== SLIDE 6 ===
+System Testing based on Use-Cases 
+Use-case In general, a use-case is a sequence of interactions by which the user accomplishes a task in a dialogue with the system. When we use use-case in testing, we use the following notations:use-case = one particular way to use the systemuse-case (in testing) = user requirementset of all use-cases = complete functionality of the systemset of all use-cases (in testing) = interface between the users (actors) and the system
+
+=== SLIDE 7 ===
+System Testing based on Use-Cases  cont… 
+Scenario It is an instance of a use-case, expressing a specific task, by a specific actor, at a specific time, and using specific data.
+
+=== SLIDE 8 ===
+System Testing based on Use-Cases  cont… 
+Use-case model This is a set of use-case diagrams, each associated with a textual description of the user’s task. For testing, the use-case model must be extended with:the domain of each variable participating in the use-cases,the input/output relationships among the variables,the relative frequency of the use-cases,the sequential (partial) order among the use-cases.
+
+=== SLIDE 9 ===
+System Testing based on Use-Cases  cont… 
+Use case-based testing is a technique for generating test cases and recommending configurations for system-level testing. The testers build a test model based on the standard UML notions of use-cases, actors, and the relationships between these elements. The use-cases are enhanced with additional information, including inputs from actors, outputs to the actors, and how the use-case affects the state of the system.
+
+=== SLIDE 10 ===
+System Testing based on Use-Cases  cont… 
+To perform this testing, the tester needs to identify four things:the use-cases of interest,the actors involved in using the system,the input, output, and system effects for the use-cases,the flows of interest between the use-cases.
+
+=== SLIDE 11 ===
+System Testing based on Use-Cases  cont… 
+A use-case is a semantically meaningful function that provides some value from the user’s point of view. For example, saving a file in a word processing system would be represented by the Save File use-case.
+
+=== SLIDE 12 ===
+System Testing based on Use-Cases  cont… 
+Each use-case can have input parameters associated with it, and for each parameter, a set of logical partitions of the values that parameter can take may be identified. Finally, the use-cases can be connected using flows that describe a sequence of usecases that are performed to accomplish some goal.
+
+=== SLIDE 13 ===
+Case study: Parking management system 
+It deals with the management of parking in an office. For parkin a car, both the Driver and Building Manager have to log into the system. When a car enters in the parking, then the space availability sensor checks for car availability. If the space is available, then only the car can be entered. The building manager also generates report for the total cars in parking.
+
+=== SLIDE 14 ===
+Actors 
+Car driverBuilding parking managerBuilding display systemSpace availability sensor
+
+=== SLIDE 15 ===
+Use-cases 
+LoginDisplay space availability in parkingCar arrival in buildingCar leaving the buildingGenerate reportsMaintain car details
+
+=== SLIDE 16 ===
+Every actor can interact with one or more use-cases for the specified purpose. In this case study, we may identify the following actors corresponding to the use-cases identified above.
+
+=== SLIDE 17 ===
+Table 1:  Actors for the use-cases
+
+=== SLIDE 18 ===
+Use-case diagram for parking management system
+
+=== SLIDE 19 ===
+Generation of test cases from use-cases 
+There is a systematic approach for the generation of test cases. The approach includes the following steps:Generation of scenario diagramsCreation of use-case scenario matrixIdentification of variables in use casesDesign of test case matrixAssigning actual values to variables
+
+=== SLIDE 20 ===
+Generation of scenario diagrams 
+In scenario diagrams the basic flow is one scenario or a complete path through a use-case.Various alternative paths show another scenario.Alternative paths are generated by different combinations of alternative flows.
+
+=== SLIDE 21 ===
+Scenario Diagram 
+Start use case 
+Alternative flow 3 
+Alternative flow 1 
+Alternative flow 4 
+Alternative flow 2 
+end use case 
+end use case 
+Alternative flow 5 
+end use case 
+Basic flow
+
+=== SLIDE 22 ===
+Creation of use-case scenario matrix 
+A use-case scenario matrix gives all possible scenarios of the use-case scenario diagram.                               Table 2: Use-case scenario matrix
+
+=== SLIDE 23 ===
+Identification of variables in use-case 
+The following use-case variables have been identified for use case Log in.User typeUser login idUser password
+
+=== SLIDE 24 ===
+Design of test case matrix
+
+=== SLIDE 25 ===
+Assigning actual values to variables
+
+=== SLIDE 26 ===
+Thank you
+

@@ -1,0 +1,127 @@
+﻿
+=== SLIDE 1 ===
+Integration Testing 
+. 
+Prof. Durga Prasad MohapatraProfessorDept.of CSE, NIT Rourkela
+
+=== SLIDE 2 ===
+Introduction 
+In the modular design of a software system where the system is composed of different modules, integration is the activity of combining the modules together when all the modules have been prepared.Integration of modules is done according to the design of software specified earlier.Integration aims at constructing a working software system.But a working software demands full testing and thus, integration testing comes into the picture.
+
+=== SLIDE 3 ===
+Introduction               cont … 
+Why do we need integration testing? When all modules have been verified independently, then why is integration testing necessary? As discussed earlier,  modules are not standalone entities. They are a part of a software system which comprises of many interfaces. Even if a single interface is mismatched,  many modules may be affected.
+
+=== SLIDE 4 ===
+Introduction               cont … 
+Thus, integration testing is necessary for the following reasons:Integration testing exposes inconsistency between the modules such as improper call or return sequences.Data can be lost across an interface.One module when combined with another module may not give the desired result.4.  Data types and their valid ranges may mismatch     between the modules.
+
+=== SLIDE 5 ===
+Approaches for integration testing 
+Thus, integration testing focuses on bugs caused by interfacing between the modules while integrating them.There are three approaches for integration testing:
+
+=== SLIDE 6 ===
+Decomposition-based integration 
+Idea is based on decomposition into functional modulesFunctional decomposition is shown as a treeClassified intoNon-incrementalincremental 
+6
+
+=== SLIDE 7 ===
+Integration Testing
+
+=== SLIDE 8 ===
+Non incremental ApproachAlso known as big-bang integrationDiscarded for the following reasons:Big-bang requires more workWith increase in the number of modules, more number of drivers and stubs will be required to test the modules independently.Actual modules are not interfaced directly until the end of the software system.It will be difficult to localize the errors since the exact location of bugs cannot be found easily. 
+8
+
+=== SLIDE 9 ===
+Incremental Approach It is beneficial for the following reasons:Does not require many drivers and stubs.Interfacing errors are uncovered earlier.It is easy to localize the errors since modules are combined one by one, thus debugging is easier.Incremental testing is a more thorough testing 
+9
+
+=== SLIDE 10 ===
+Top-down integrationBottom-up integration 
+10 
+Types of incremental integration testing
+
+=== SLIDE 11 ===
+The strategy in top-down integration is to look at the design hierarchy from top to bottom. Start with the high-level modules and move downward through the design hierarchy.  Modules subordinate to the top module are integrated in the following two ways:Depth first integrationBreadth first integration 
+11 
+Top-down integration Testing
+
+=== SLIDE 12 ===
+Depth first integration 
+In this type, all modules on a major control path of the design hierarchy are integrated ﬁrst. In the example shown in below figure, modules 1, 2, 6, 7/8 will be integrated ﬁrst. Next, modules 1, 3, 4/5 will be integrated.
+
+=== SLIDE 13 ===
+Breadth ﬁrst integration 
+In this type, all modules directly subordinate at each level, moving across the design hierarchy horizontally, are integrated ﬁrst.In the example shown in previous figure, modules 2 and 3 will be integrated ﬁrst.   Next, modules 6, 4, and 5 will be integrated. Modules 7 and 8 will be integrated last.
+
+=== SLIDE 14 ===
+However, in practice, these two sequences of top-down integration cannot be used every time. In general, there is no best sequence, but the following guidelines can be considered:  1. In practice, the availability of modules matters the most. The module which is ready to be integrated, will be integrated and tested ﬁrst. We  should not wait to test it according to depth ﬁrst or breadth ﬁrst sequence, but use the availability of modules.
+
+=== SLIDE 15 ===
+2. If there are critical sections of the software, design the sequence such that these sections will be added and tested as early as possible. A critical section might be a complex module, a module with a new algorithm or a module suspected to be error prone.  3. Design the sequence such that the I/O modules are added as early as possible, so that all interface errors will be detected earlier.
+
+=== SLIDE 16 ===
+Top-Down Integration Procedure 
+Start with the top or initial module in the software. Substitute the stubs  for all the subordinate modules of top module. Test  the  top module.  After testing  the top module, stubs are replaced one at a time with the actual modules for integration.  Perform testing on this recent integrated environment.  Regression testing may be conducted to ensure that new errors have not appeared.  Repeat steps 2-4 for the whole design hierarchy.
+
+=== SLIDE 17 ===
+Example
+
+=== SLIDE 18 ===
+Example              cont…
+
+=== SLIDE 19 ===
+Stubs must be prepared as requiredStubs are often more complicated than they appearBefore the I/O functions are added, the representation of test cases in stubs can be difficult 
+Drawbacks of top-down integration
+
+=== SLIDE 20 ===
+Bottom-up Integration Testing 
+The bottom-up strategy begins with the terminal or modules at the lowest level in the software structure. After testing these modules, they are integrated and tested moving from bottom to top level. Since the processing required for modules subordinate to a given level is always available, stubs are not required in this strategy.
+
+=== SLIDE 21 ===
+Bottom-up integration can be considered as the opposite of top-down approach. Unlike top-down strategy, this strategy does not require the architectural design of the system to be complete. Thus, bottom-up integration can be performed at an early stage in the developmental process. It may be used where the system reuses and modiﬁes components from other systems.
+
+=== SLIDE 22 ===
+Steps in bottom-up integration  
+ 
+Start with the lowest level modules (modules from which no other module is being called), in the design hierarchy.  Look for the super-ordinate module which calls the module selected in  Step 1. Design the driver module for this super-ordinate module.  Test the module selected in Step 1 with the driver designed in Step 2.  The next module to be tested is any module whose subordinate modules (modules it calls) have all been tested.  Repeat Steps 2 to 4 and move up in the design hierarchy.   Whenever, the actual modules are available, replace stubs and drivers with the actual one and test again.
+
+=== SLIDE 23 ===
+Example
+
+=== SLIDE 24 ===
+Comparison between top-down and bottom-up testing
+
+=== SLIDE 25 ===
+Practical Approach for Integration Testing 
+There is no single strategy adopted for industry practice. For integrating the modules, one cannot rely on a single strategy. There are situations depending on the project in hand which will force to integrate the modules by combining  top-down and bottom-up techniques. This combined approach is sometimes  known as sandwich integration testing. 
+25
+
+=== SLIDE 26 ===
+Selection of an integration testing strategy depends on software characteristics and sometimes project schedules. In general, sandwich testing strategy  that uses top-down tests for upper levels of the program structure with bottom-up tests for subordinate levels is the best compromise.  The practical approach for adopting sandwich testing is driven by the following factors:
+
+=== SLIDE 27 ===
+PriorityFirst putting together those subsystems with more important requirements.Follow top-down approach if the module has high level of control on its sub-ordinate modules.Modules with more user interfaces should be tested first, as they are more error prone.Module having high cyclomatic complexity should be tested first.AvailabilityThe module that is ready to be integrated. Will be tested first. 
+27
+
+=== SLIDE 28 ===
+Pros and Cons of Decomposition Tech. 
+Debugging is easy in decomposition based integrationBetter for monitoring the progress of integration.But, more effort is required as stubs and drivers are needed. 
+28
+
+=== SLIDE 29 ===
+The integration testing effort is computed as the number of test sessions. A test session is one set of test cases for a speciﬁc conﬁguration.  The total number of test sessions in a decomposition-based integration is computed as:   Number of test sessions = nodes - leaves + edges 
+Integration Testing Effort
+
+=== SLIDE 30 ===
+Summary 
+Discussed basics of different approaches for integration testing.Discussed decomposition-based integration in detail.Big bang integration Top-down integrationBreadth First IntegrationDepth First IntegrationBottom-up integrationSandwich integrationExplained how to compute the integration testing effort . 
+30
+
+=== SLIDE 31 ===
+References  
+Rajib Mall, Fundamentals of Software Engineering, (Chapter – 10), Fifth Edition, PHI Learning Pvt. Ltd., 2018.Naresh Chauhan, Software Testing: Principles and Practices, (Chapter – 7), Second Edition, Oxford University Press,  2016.
+
+=== SLIDE 32 ===
+Thank You
+

@@ -1,0 +1,894 @@
+﻿
+=== SLIDE 1 ===
+1 
+1 
+1 
+03/08/10 
+1 
+1 
+Software Testing 
+Dr. Durga Prasad MohapatraProfessorDepartment Of Computer Science & EngineeringNIT Rourkela
+
+=== SLIDE 2 ===
+2 
+Software Development Process
+
+=== SLIDE 3 ===
+Software Life Cycle 
+Software Development Life Cycle (or software development process):Series of identifiable stages that a software product undergoes during its life time: Feasibility studyRequirements analysis and specification, Design, Coding, TestingMaintenance. 
+3
+
+=== SLIDE 4 ===
+Classical Waterfall Model 
+Classical waterfall model divides life cycle into following phases:Feasibility study,  Requirements analysis and                                                                      specification, Design, Coding and unit testing, Integration and system testing,  Maintenance.  
+4
+
+=== SLIDE 5 ===
+Classical Waterfall Model 
+Simplest and most intuitive 
+5
+
+=== SLIDE 6 ===
+6 
+Defect Reduction Techniques 
+ReviewTestingFormal verificationDevelopment processSystematic methodologies
+
+=== SLIDE 7 ===
+7 
+Why to Test? 
+Ariane 5 rocket self-destructed 37 seconds after launchReason: A control software bug that went undetectedConversion from 64-bit floating point to 16-bit signed integer value had caused an exceptionThe floating point number was larger than 32767 Efficiency considerations had led to the disabling of the exception handler.Total Cost: over $1 billion
+
+=== SLIDE 8 ===
+8 
+Organization of this lecture 
+Important concepts in program testingBlack-box testing:equivalence partitioningboundary value analysisWhite-box testingDebuggingUnit, Integration, and System testingSummary
+
+=== SLIDE 9 ===
+9 
+How Do You Test a Program? 
+Input test data to the program.Observe the output:Check if the program behaved as expected.
+
+=== SLIDE 10 ===
+10 
+How Do You Test a Program?
+
+=== SLIDE 11 ===
+11 
+How Do You Test a Program? 
+If the program does not behave as expected:Note the conditions under which it failed.Later debug and correct.
+
+=== SLIDE 12 ===
+12 
+What’s So Hard About Testing ? 
+Consider	  int proc1(int x, int y)Assuming a 64 bit computerInput space = 2128Assuming it takes 10secs to key-in an integer pairIt would take about a billion years to enter all possible values!Automatic testing has its own problems!
+
+=== SLIDE 13 ===
+13 
+Testing Facts 
+Consumes largest effort among all phasesLargest manpower among all other development rolesImplies more job opportunitiesAbout 50% development effortBut 10% of development time?How?
+
+=== SLIDE 14 ===
+14 
+Testing Facts 
+Testing is getting more complex and sophisticated every year.Larger and more complex programsNewer programming paradigms
+
+=== SLIDE 15 ===
+15 
+Overview of Testing Activities 
+Test Suite DesignRun test cases and observe results to detect failures.Debug to locate errorsCorrect errors.
+
+=== SLIDE 16 ===
+16 
+Error, Faults, and Failures 
+A failure is a manifestation of an  error (also defect or  bug).Mere presence of an error may not lead to a failure.
+
+=== SLIDE 17 ===
+17 
+Pesticide Effect 
+Errors that escape a fault detection technique:Can not be detected by further applications of that technique.
+
+=== SLIDE 18 ===
+18 
+Pesticide Effect 
+Assume we use 4 fault detection techniques and 1000 bugs:Each detects only 70% bugsHow many bugs would remain1000*(0.3)4=81 bugs
+
+=== SLIDE 19 ===
+19 
+Fault Model 
+Types of faults possible in a program.Some types can be ruled outConcurrency related-problems in a sequential program
+
+=== SLIDE 20 ===
+20 
+Fault Model of an OO Program 
+OO Faults 
+Structural  Faults 
+Algorithmic  Faults 
+Procedural  Faults 
+Traceability  Faults 
+OO  Faults 
+Incorrect  Result 
+Inadequate  Performance
+
+=== SLIDE 21 ===
+21 
+Hardware Fault-Model 
+Simple:Stuck-at 0Stuck-at 1Open circuitShort circuitSimple ways to test the presence of eachHardware testing is fault-based testing
+
+=== SLIDE 22 ===
+22 
+Software Testing 
+Each test case typically tries to establish correct working of some functionalityExecutes (covers) some program elementsFor restricted types of faults, fault-based testing exists.
+
+=== SLIDE 23 ===
+23 
+Test Cases and Test Suites 
+Test a software using a set of carefully designed test cases:The set of all test cases is called the test suite
+
+=== SLIDE 24 ===
+24 
+Test Cases and Test Suites 
+A test case is a triplet [I,S,O]I is the data to be input to the system, S is the state of the system at which the data will be input,O is the expected output of the system.
+
+=== SLIDE 25 ===
+25 
+Verification versus Validation 
+Verification is the process of determining:Whether output of one phase of development conforms to its previous phase.Validation is the process of determining:Whether a fully developed system conforms to its SRS document.
+
+=== SLIDE 26 ===
+26 
+Verification versus Validation 
+Verification is concerned with phase containment of errors, Whereas the aim of validation is that the final product be error free.
+
+=== SLIDE 27 ===
+27 
+Design of Test Cases 
+Exhaustive testing of any non-trivial system is impractical: Input data domain is extremely large. Design an optimal test suite:Of reasonable size and  Uncovers as many errors as possible.
+
+=== SLIDE 28 ===
+28 
+Design of Test Cases 
+If test cases are selected randomly: Many test cases would not contribute to the significance of the test suite,  Would not detect errors not already being detected by other test cases in the suite.Number of test cases in a randomly selected test suite:Not an indication of effectiveness of testing.
+
+=== SLIDE 29 ===
+29 
+Design of Test Cases 
+Testing a system using a large number of randomly selected test cases:Does not mean that  many errors in the system will be uncovered.Consider following example:Find the maximum of two integers  x and  y.
+
+=== SLIDE 30 ===
+30 
+Design of Test Cases 
+The code has a simple programming error:  If (x>y) max = x;                		else max = x;Test suite {(x=3,y=2);(x=2,y=3)} can detect the error, A larger test suite {(x=3,y=2);(x=4,y=3); (x=5,y=1)} does not detect the error.
+
+=== SLIDE 31 ===
+31 
+Design of Test Cases 
+Systematic approaches are required to design an optimal test suite:Each test case in the suite should detect different errors.
+
+=== SLIDE 32 ===
+32 
+Design of Test Cases 
+There are essentially three main approaches to design test cases:Black-box approachWhite-box (or glass-box) approachGrey-box testing
+
+=== SLIDE 33 ===
+33 
+Black-Box Testing 
+Test cases are designed using only functional specification of the software:Without any knowledge of the internal structure of the software.For this reason, black-box testing is also known as  functional testing.
+
+=== SLIDE 34 ===
+34 
+White-box Testing 
+Designing white-box test cases: Requires knowledge about the internal structure of software. White-box testing is also called structural testing.In this unit we will not study white-box testing.
+
+=== SLIDE 35 ===
+35 
+White-Box Testing 
+There exist several popular white-box testing methodologies:Statement coverageBranch coveragePath coverageCondition coverageMC/DC coverageMutation testingData flow-based testing
+
+=== SLIDE 36 ===
+36 
+Black-box Testing 
+Test cases are designed using only functional specification of the software:without any knowledge of the internal structure of the software / program.For this reason, black-box testing is also known as  functional testing.
+
+=== SLIDE 37 ===
+37 
+Black-box Testing 
+There are essentially two main approaches to design black box test cases:Equivalence class partitioningBoundary value analysis
+
+=== SLIDE 38 ===
+Equivalence class partitioning 
+What does a ≡ b mod n mean?For a positive integer n, two integers a and b are said to be congruent modulo n (or a is congruent to b modulo n), if a and b have the same remainder when divided by n (or equivalently if a − b is divisible by n ).Congruence modulo n divides the set Z of all integers into n subsets called residue classes (equivalence classes).  It can be expressed as a ≡ b mod n, n is called the modulus. 
+38
+
+=== SLIDE 39 ===
+Equivalence class partitioning 
+For example, if n = 2, then the two residue (equivalence) classes are the even integers and the odd integers.So, C1={0,2,4,6,8,10,…}      C2={1,3,5,7,9,11,…}If, n = 3, then the residue (equivalence) classes are as follows:C1={0,3,6,9, 12,…}C2={1,4,7,10,13,…}C3={2,5,8,11,14,…} 
+39
+
+=== SLIDE 40 ===
+40 
+Equivalence Class  Partitioning 
+Input values to a program are partitioned into equivalence classes. Partitioning is done such that:program behaves in similar ways to every input value belonging to an equivalence class.
+
+=== SLIDE 41 ===
+41 
+Why define equivalence classes? 
+Test the code with just one representative value from  each equivalence class: as good as testing using any other values from the equivalence classes.
+
+=== SLIDE 42 ===
+42 
+Equivalence Class  Partitioning 
+How do you determine the equivalence classes?examine the input data. few general guidelines for determining the equivalence classes can be given
+
+=== SLIDE 43 ===
+43 
+Equivalence Class  Partitioning 
+If the input data to the program is specified by a range of values:e.g. numbers between 1 to 5000. one valid and two invalid equivalence classes are defined.  
+1 
+5000
+
+=== SLIDE 44 ===
+44 
+Equivalence Class  Partitioning 
+If input is an enumerated set of  values: e.g. {a,b,c}one equivalence class for valid input values  another equivalence class for invalid input values should be defined.
+
+=== SLIDE 45 ===
+45 
+Example 
+A program reads an input value in the range of 1 and 5000:computes the square root of the input number  
+SQRT
+
+=== SLIDE 46 ===
+46 
+ Example (cont.) 
+There are three equivalence classes: the set of negative integers, set of integers in the range of 1 and 5000, integers larger than 5000.  
+1 
+5000
+
+=== SLIDE 47 ===
+47 
+Example (cont.) 
+The test suite must include:representatives from each of the three equivalence classes:a possible test suite can be: {-5,500,6000}. 
+1 
+5000
+
+=== SLIDE 48 ===
+Example  
+A program reads three numbers, A, B, and C, with a range [1, 50] and prints the largest number. Design test cases for this program using equivalence class testing technique.  
+48
+
+=== SLIDE 49 ===
+Solution 
+1. First we partition the domain of input as valid input values and invalid values, getting the following classes:I1 = {<A, B, C> : 1 ≤ A ≤ 50} I2 = {<A, B, C> : 1 ≤ B ≤ 50} I3 = {<A, B, C> : 1 ≤ C ≤ 50} I4 = {<A, B, C> : A < 1} 
+49
+
+=== SLIDE 50 ===
+Solution 
+I5 = {<A, B, C> : A > 50} I6 = {<A, B, C> : B < 1} I7 = {<A, B, C> : B > 50} I8 = {<A, B, C> : C < 1} I9 = {<A, B, C> : C > 50} 
+50
+
+=== SLIDE 51 ===
+Solution 
+Now the test cases can be designed from the above derived classes, taking one test case from each class such that the test case covers maximum valid input classes, and separate test cases for each invalid class. 
+51
+
+=== SLIDE 52 ===
+Solution 
+The test cases are shown below: 
+52
+
+=== SLIDE 53 ===
+Solution 
+ 2. We can derive another set of equivalence classes based on some possibilities for three integers, A, B, and C. These are given below:I1 = {<A, B, C> : A > B, A > C} I2 = {<A, B, C> : B > A, B > C} I3 = {<A, B, C> : C > A, C > B}  
+53
+
+=== SLIDE 54 ===
+Solution 
+I4 = {<A, B, C> : A = B, A ≠ C} I5 = {<A, B, C> : B = C, A ≠ B} I6 = {<A, B, C> : A = C, C ≠ B} I7 = {<A, B, C> : A = B = C} 
+54
+
+=== SLIDE 55 ===
+Solution 
+55
+
+=== SLIDE 56 ===
+Example 
+A program determines the next date in the calendar. Its input is entered in the form of with the following range:1 ≤ mm ≤ 12 1 ≤ dd ≤ 31 1900 ≤ yyyy ≤ 2025 
+56
+
+=== SLIDE 57 ===
+Example 
+Its output would be the next date or an error message ‘invalid date.’ Design test cases using equivalence class partitioning method. 
+57
+
+=== SLIDE 58 ===
+Solution  
+First we partition the domain of input in terms of valid input values and invalid values, getting the following classes:I1 = { <m, d, y> : 1 ≤ m ≤ 12} I2 = {<m, d, y> : 1 ≤ d ≤ 31} I3 = {<m, d, y> : 1900 ≤ y ≤ 2025} I4 = {<m, d, y> : m < 1} 
+58
+
+=== SLIDE 59 ===
+Solution 
+I5 = {<m, d, y> : m > 12} I6 = {<m, d, y> : d < 1} I7 = {<m, d, y> : d > 31} I8 = {<m, d, y> : y < 1900} I9 = {<m, d, y> : y > 2025} 
+59
+
+=== SLIDE 60 ===
+Solution 
+The test cases can be designed from the above derived classes, taking one test case from each class such that the test case covers maximum valid input classes, and separate test cases for each invalid class. The test cases are shown below: 
+60
+
+=== SLIDE 61 ===
+Solution 
+61
+
+=== SLIDE 62 ===
+Example 
+A program takes an angle as input within the range [0, 360] and determines in which quadrant the angle lies. Design test cases using equivalence class partitioning method. 
+62
+
+=== SLIDE 63 ===
+Solution 
+1. First we partition the domain of input as valid and invalid values, getting the followI1 = {<Angle> : 0 ≤ Angle ≤ 360} I2 = {<Angle> : Angle < 0} I3 = {<Angle> : Angle > 360} 
+63
+
+=== SLIDE 64 ===
+Solution 
+The test cases designed from these classes are shown below: 
+64
+
+=== SLIDE 65 ===
+Solution 
+2. The classes can also be prepared based on the output criteria as shown below:O1 = {<Angle>: First Quadrant, if 0 ≤ Angle ≤ 90} O2 = {<Angle>: Second Quadrant, if 91 ≤ Angle ≤ 180} O3 = {<Angle>: Third Quadrant, if 181 ≤ Angle ≤ 270} 
+65
+
+=== SLIDE 66 ===
+Solution 
+O4 = {<Angle>: Fourth Quadrant, if 271 ≤ Angle ≤ 360} O5 = {<Angle>: Invalid Angle};However, O5 is not sufficient to cover all invalid conditions this way. Therefore, it must be further divided into equivalence classes as shown in next slide: 
+66
+
+=== SLIDE 67 ===
+Solution 
+O51 = {<Angle>: Invalid Angle, if Angle < 0} O52 = {<Angle>: Invalid Angle, if Angle > 360} 
+67
+
+=== SLIDE 68 ===
+Solution 
+Now the test cases can be designed from the above derived classes as shown below: 
+68
+
+=== SLIDE 69 ===
+69 
+Boundary Value Analysis 
+Some typical programming errors occur: at boundaries of equivalence classes might be purely due to psychological factors.  Programmers often fail to see:special processing required at the boundaries of equivalence classes.
+
+=== SLIDE 70 ===
+70 
+Boundary Value Analysis 
+Programmers may improperly use < instead of <= Boundary value analysis:select test cases at the boundaries of different equivalence classes.
+
+=== SLIDE 71 ===
+71 
+Example 
+For a function that computes the square root of an integer in the range of 1 and 5000:test cases must include the values: {0,1,2,4999,5000,5001}. 
+1 
+5000
+
+=== SLIDE 72 ===
+TS1 = {-5, 500, 6000} (EP)TS2 = {0,1,2,4999,5000,5001} (BVA)TS = TS1 U TS2={-5,0,1,2,500,4999,5000,5001, 6000}  
+72
+
+=== SLIDE 73 ===
+More Examples on Testing
+
+=== SLIDE 74 ===
+Ex:-1 
+Q. Check if  2 Straight Lines Intersect and Print Their Point of Intersection	Ans:   y  =  mx + cStraight lines are given in the form of (m1, c1) and (m2, c2)Step:1Identify the Equivalent classCase 1: The lines are parallel i.e. m1 = m2 	So points are (1, 2) and (1, 5)Case 2: Coincident lines i.e. m1 = m2 and c1= c2  	And points are (2, 3) and (2, 3)
+
+=== SLIDE 75 ===
+Ex:-1  Contd. 
+Case 3: Lines intersecting at one point i.e. The points may be (2, 5) and (3, 6).So there are 3 equivalent classes.There are no boundary values here.So, Test Suite = {(1, 2),(1, 5),(2, 3),(2, 3),(2, 5),(3, 6)}
+
+=== SLIDE 76 ===
+Ex:-2 
+The Program Solves quadratic equations of the form 	It will accept 3 floating point values as input and it will gives the roots e.g. The input may be (7.7, 3.3 and 4.5).Ans: Equivalent Classesb2 =4ac inputs are: a= 2.0, b=4.0 and c=2.0b2 >4ac  inputs are a=2.0, b= 5.0 and c=2.0b2 <4ac  inputs are a=2.0, b= 3.0 and c=2.0Invalid Equation inputs are a=0, b= 0 and c=10.0So, Test Suite = {(2.0,4.0,2.0),(2.0,5.0,2.0),(2.0,3.0,2.0),(0.0,0.0,10.0)}
+
+=== SLIDE 77 ===
+Ex:-3 
+Solves linear equations in upto 10 independent variables     e.g. 5x+6y+z=5          10x+2y+5z=20          …………          …………
+
+=== SLIDE 78 ===
+Example  
+Equivalent ClassesValidMany Solution (# var < #eqns)No Solution (# var > #eqns)Unique Solution (# var = #eqns)InvalidToo many Variables (# var > 10)Invalid Equation (# var = 0)
+
+=== SLIDE 79 ===
+Ex:-3 
+Program Finds points of intersection of 2 circlesEquivalent Classesr1+r2< distance between(x1, y1) and (x2, y2) i.e. not intersecting  r1+r2= distance i.e. touching at 1 point r1+r2> distance i.e. intersecting at 2 points Distance=0 and r1= r2 i.e. overlappingDistance=0 and r1≠ r2 Invalid circles
+
+=== SLIDE 80 ===
+Example: Query Book Option in LIS 
+        Example: Testing the option Query Book using a Keyword (e.g. Author name or title).        The  equivalent classes areNot present in catalogue (SE, not present)Present in catalogue (SE, present, 15 issued, not available)Present in catalogue (SE, present, 10 issued, 5 available)
+
+=== SLIDE 81 ===
+Black Box testing 
+Black-box testing attempts to find errors in the following categories:1.To test the modules independently .2. To test the functional validity of the software so that incorrect or missing functions can be recognized .3. To look for interface errors.  
+81
+
+=== SLIDE 82 ===
+4. To test the system behavior and check its performance .5. To test the maximum load or stress on the system. 6. To test the software such that the user/customer accepts the system within defined acceptable limits. 
+82 
+Black Box testing
+
+=== SLIDE 83 ===
+BOUNDARY VALUE ANALYSIS (BVA) 
+BVA offers several methods to design test cases. Following are the few methods used:1. BOUNDARY VALUE CHECKING (BVC)2. ROBUSTNESS TESTING METHOD3. WORST-CASE TESTING METHOD4. ROBUST WORST-CASE TESTING METHOD 
+83
+
+=== SLIDE 84 ===
+BOUNDARY VALUE CHECKING (BVC) 
+In this method, the test cases are designed by holding one variable at its extreme value and other variables at their nominal values in the input domain.The variable at its extreme value can be selected at: 
+84
+
+=== SLIDE 85 ===
+BOUNDARY VALUE CHECKING (BVC) 
+(a) Minimum value (Min) (b) Value just above the minimum value (Min+ )(c) Maximum value (Max) (d) Value just below the maximum value (Max−) 
+85
+
+=== SLIDE 86 ===
+BOUNDARY VALUE CHECKING (BVC) 
+Let us take the example of two variables, A and B. If we consider all the above combinations with nominal values, then following test cases (see Fig. 1) can be designed:1. Anom, Bmin              2. Anom, Bmin+ 3. Anom, Bmax             4. Anom, Bmax– 5. Amin, Bnom              6. Amin+, Bnom 
+86
+
+=== SLIDE 87 ===
+BOUNDARY VALUE CHECKING (BVC) 
+7. Amax, Bnom 		8. Amax–, Bnom 9. Anom, Bnom                                                                                             Fig: Boundary Value Checking 
+87
+
+=== SLIDE 88 ===
+BOUNDARY VALUE CHECKING (BVC) 
+It can be generalized that for n variables in a module, 4n + 1 test cases can be designed with boundary value checking method. 
+88
+
+=== SLIDE 89 ===
+ROBUSTNESS TESTING METHOD 
+The idea of BVC can be extended such that boundary values are exceeded as: 1. A value just greater than the Maximum value (Max+) 2. A value just less than Minimum value (Min−)  
+89
+
+=== SLIDE 90 ===
+ROBUSTNESS TESTING METHOD 
+When test cases are designed considering the above points in addition to BVC, it is called robustness testing.Let us take the previous example again. Add the following test cases to the list of 9 test cases designed in BVC: 10. Amax+, Bnom 	11. Amin–, Bnom 
+90
+
+=== SLIDE 91 ===
+ROBUSTNESS TESTING METHOD 
+12. Anom, Bmax+ 13. Anom, Bmin–It can be generalized that for n input variables in a module, 6n + 1 test cases can be designed with robustness testing. 
+91
+
+=== SLIDE 92 ===
+WORST-CASE TESTING METHOD 
+We can again extend the concept of BVC by assuming more than one variable on the boundary. It is called worst-case testing method.Again, take the previous example of two variables, A and B. We can add the following test cases to the list of 9 test cases designed in BVC as: 
+92
+
+=== SLIDE 93 ===
+WORST-CASE TESTING METHOD 
+10. Amin, Bmin 		11. Amin+, Bmin 12. Amin, Bmin+	       13. Amin+, Bmin+ 14. Amax, Bmin           15. Amax–, Bmin 16. Amax, Bmin+         17. Amax–, Bmin+ 18. Amin, Bmax            19. Amin+, Bmax 20. Amin, Bmax–          21. Amin+,Bmax– 22. Amax, Bmax           23. Amax–, Bmax 24. Amax, Bmax–         25. Amax–,Bmax–  
+93
+
+=== SLIDE 94 ===
+WORST-CASE TESTING METHOD 
+It can be generalized that for n input variables in a module, 5n test cases can be designed with worst-case testing. 
+94
+
+=== SLIDE 95 ===
+ROBUST WORST-CASE TESTING METHOD 
+In the previous method, the extreme values of a variable considered are of BVC only. The worst case can be further extended if we consider robustness also, that is, in worst case testing  if we consider the extreme values of the variables as in robustness testing method covered in Robustness Testing 
+95
+
+=== SLIDE 96 ===
+ROBUST WORST-CASE TESTING METHOD 
+Again take the example of two variables, A and B. We can add the following test cases to the list of 25 test cases designed in previous section.26. Amin-, Bmin-        28. Amin, Bmin-  27. Amin-, Bmin         29. Amin-, Bmin+30. Amin+, Bmin-        31. Amin-, Bmax     
+96
+
+=== SLIDE 97 ===
+Solution 
+32. Amax, Bmin-        33. Amin-, Bmax-  34. Amax-, Bmin-        35. Amax+,Bmax+36. Amax+, Bmin        37. Amin, Bmin+ 38. Amax+, Bmin+      39. Amax+,Bmax+40. Amax+,Bmax 		41. Amax, Bmax+42. Amax+,Bmax- 	43. Amax-, Bmax+44. Amax+,Bnom  	45. Anom, Bmax+ 
+97
+
+=== SLIDE 98 ===
+Solution 
+46. Amin-,Bnom 	       47. Anom, Bmin-48. Amax+,Bmin-  	49. Amin-, Bmax+ 
+98
+
+=== SLIDE 99 ===
+STATE TABLE – BASED TESTING  
+Tables are useful tools for representing and documenting many types of information      relating to test case design.Theses are beneficial for applications which can be described using state transition diagrams and state 	tables.
+
+=== SLIDE 100 ===
+Basic terms related to State Table1.  Finite State Machine (FSM)  
+An FSM is a behavioral model whose  outcome depends upon both the previous and current inputs.This model can be prepared for software structure or software behavior.It can be used as a tool for functional testing.
+
+=== SLIDE 101 ===
+2.	State Transition Diagrams or State Graph 
+A system or its components may have a number of states depending on its input and time.States are represented by nodes.With the help of nodes and transition links between nodes, a STD or SG can be prepared. A state graph is the pictorial representation of an FSM.Its purpose is to depict the states that a system or its components can assume.It shows the events or circumstances that cause or result from a change from one state to another.
+
+=== SLIDE 102 ===
+Whatever is being modeled is subjected to inputs.As a result of these inputs, when one state is changed to another is called a transition.Transitions are represented by links that join the nodes.
+
+=== SLIDE 103 ===
+For example, a task in an O. S. can have its following states: New State : When a task is newly created Ready : When the task is waiting in the ready queue for its turn.Running : When Instructions of the task are being executed by CPU.Waiting : When the task is waiting for an I/O event or reception of a signalTerminated : The task has finished execution.
+
+=== SLIDE 104 ===
+State Graph 
+New State : When a task is newly created Ready : When the task is waiting in the ready queue for its turn.Running : When Instructions of the task are being executed by CPU.Waiting : When the task is waiting for an I/O event or reception of a signalTerminated : The task has finished execution.
+
+=== SLIDE 105 ===
+Each arrow link provides two types of Information : Transition events like admitted, dispatch, interrupt, etc. The resulting output from a state like T1, T2, T3 etc.	T0=Task is in new state and waiting for admission to ready queue.	T1= A new task admitted to ready queue	T2= A ready task has started running 	T3= Running task has been interrupted 	T4= Running task is waiting for I/O or event	T5= Wait period of waiting task is over 	T6= Task has completed execution
+
+=== SLIDE 106 ===
+3.  State Table  
+Each rows of the table corresponds to a state.Each column corresponds to an input condition The box at the intersection of a row and a column specifies the next state (transition) and the outputs, if any.
+
+=== SLIDE 107 ===
+4. State Table-Based Testing  
+After reviewing the basics, we can start functional testing with state tables. Steps:1. Identify the states The number of states in a state graph is the number of states we choose to recognize or model.
+
+=== SLIDE 108 ===
+Find the number states as follows : Identify all the component factors of the state.Identify all the allowable values for each factorThe number of states is the product of the number of allowable values of all the factors.
+
+=== SLIDE 109 ===
+2. Prepare state transition diagram after understanding transitions between statesAfter having all the states, identify the inputs on each state and transitions between states and prepare the state graph.Every input state combination must have a specified transition.
+
+=== SLIDE 110 ===
+3.  Convert the state graph into the state 	table as discussed earlier4. 	Analyze the state table for its 	completeness.
+
+=== SLIDE 111 ===
+5. 	Create the corresponding test cases from the state table 
+Test cases are produced in a tabular form known as the test case.Test cases ID : a unique identifier for each test case Test Source : a trace back to the corresponding cell in the state table. Current state : the initial condition to run the test Event : the input triggered by the user Output : the current value returned Next State : the new state achieved
+
+=== SLIDE 112 ===
+Decision Table – Based Testing  
+Boundary value analysis and equivalence class partitioning methods do not consider combinations of input conditions. There may be some critical behaviour to be tested when some combinations of input conditions are considered.Decision table is another useful method to represent the information in a tabular method.Decision table has the specialty to consider complex combinations of input conditions and resulting actions. Decision tables obtain their power from logical expressions.Each operand or variable in a logical expression takes on the value, TRUE or FALSE
+
+=== SLIDE 113 ===
+Formation of Decision Table 
+Condition stub It is a list a list of input conditions for which the complex combination is made.Action stub It is a list of resulting action which will be performed if a combination of input condition is satisfied. Condition entry It is a specific entry in the table corresponding to input conditions mentioned in the condition stub. When the condition entry takes only two values – TRUE or FALSE then it is called Limited Entry Decision Table.When the condition entry takes several values , then it is called Extended Entry Decision Table.Action entry It is the entry in the table for the resulting action to be performed List all actions that can be associated with a specific procedure. List  all conditions during execution of the procedure.Associate specific sets of conditions with specific actions, eliminating impossible combinations and conditions; alternatively, develop every possible permutation of conditions.Define rules by indicating what action occurs for a set of conditions.
+
+=== SLIDE 114 ===
+Test Case Design using Decision Table 
+Interpret condition stubs as the inputs for the test case.Interpret action stubs as the expected output for the test case.Rule, which is the combination of input conditions, becomes the test case itself.If there are k rules over n binary conditions, there are at least k test cases and at the most 2n  test cases.
+
+=== SLIDE 115 ===
+Example  
+A programme calculates the total salary of an emplyee with the conditions that if the working hours are less than or equal to 48, then give normal salary. The hours over 48 on normal working days are calculated at the rate of 1.25 of the salary. However, on holidays or Sundays, the hours are calculated at the rate of 2.00 times of the salary. Design test cases using decision table testing.Solution EntryDecision Table
+
+=== SLIDE 116 ===
+Expanding the Immaterial Cases in Decision Table 
+These conditions means that the value of a particular condition in the specific rule does not make a difference whether it is TRUE or FALSE.Sometimes expanding the decision table to spell out don’t-care conditions can reveal hidden problems.
+
+=== SLIDE 117 ===
+Example  
+Entry (Decision table) The immaterial test case in rule 1 of the above table can be expanded by taking both T and F values of C1.
+
+=== SLIDE 118 ===
+Entry (Expanded decision table) 
+Entry (Expanded decision table)
+
+=== SLIDE 119 ===
+Orthogonal Arrays are two dimensional arrays of numbers that have the attractive feature that by selecting any two columns in the array, an even distribution of all pairwise combinations of values in the array can be achieved.   
+Orthogonal Array Testing
+
+=== SLIDE 120 ===
+In the following table , after selecting first two columns, we get four ordered pairs namely (0,0), (1,1), (0,1) and (1,0).  These pairs form all the possible ordered pairs of two-element set and each ordered pair appears exactly once. 
+Example
+
+=== SLIDE 121 ===
+We obtain same values when selecting second and third or first and third column combination. An array exhibiting this feature is known as orthogonal array. 
+Example
+
+=== SLIDE 122 ===
+Orthogonal arrays can be used in software testing for pairwise interactions. It provides uniformly distributed coverage for all variable pairwise combinations.It is commonly used for integration testing like object oriented systems, where multiple subclasses  can be substituted as the server for a client.   
+Orthogonal Array Testing
+
+=== SLIDE 123 ===
+It is black-box testing technique.OATS is used when the input to the system to be tested are low but if exhaustive testing is used then it is not possible to test completely every input of the system.100% OATS implies 100% pairwise testing.OATS can be used for testing combinations of configurable options like a webpage that allows the other user to select: 
+Orthogonal Array Testing
+
+=== SLIDE 124 ===
+Font style;Font color;Back ground Color;Page layout;Etc. 
+Orthogonal Array Testing
+
+=== SLIDE 125 ===
+Step 1:  Identify the independent variables that are to be used for interaction.  These will be mapped as “factor” (f) of array.Step 2: Identify the maximum number of values, which each variable will take. There will be mapped as “levels” (p) of the array.Search for an orthogonal array that has all factors from step 1 and all levels from step 2.  
+Steps to use OATS
+
+=== SLIDE 126 ===
+Step 4: Map all the factors and levels with your requirements.Translate them into suitable test cases.Look out for any special test cases.If we have 3 variables (parameters) that we have 3 value then the possible number of test cases using conventional technique is 3*3*3=27 but if OATS is used, then number of test cases will be 9.  
+Steps to use OATS
+
+=== SLIDE 127 ===
+Consider a scenario in which we need to derive test cases for a web page of a research paper that has four different sections:(a) Abstract(b) Related work(c) Proposed work(d) Conclusion 
+Example 1
+
+=== SLIDE 128 ===
+The four section can be individually shown or hidden to the user or show message. Thus it is required to design the test condition to test interaction between different sections 
+Example 1
+
+=== SLIDE 129 ===
+Step 1: Number of independent variables or factors = 4.Step 2: Value that each independent variable can take = 3 values (shown , hidden or error message).Step 3: Orthogonal array would be 32 .Step 4: The appropriate orthogonal array for 4 factors and 3 levels is shown in the table.    
+Solution
+
+=== SLIDE 130 ===
+Solution
+
+=== SLIDE 131 ===
+Step 5: Now, map the table with our requirements.1 will  represent “Shown” value.2 will represent “Hidden” value.3 will represent “Error Message” value.Factor A will represent “Abstract” section.Factor B will represent “Related Work” section.Factor C will represent “Proposed Work” section. 
+Solution
+
+=== SLIDE 132 ===
+Factor A will represent “Conclusion” section.Experiment will represent “Test Case #”.Step 6: After mapping, the table will look like:  
+Solution
+
+=== SLIDE 133 ===
+Solution
+
+=== SLIDE 134 ===
+134 
+Debugging 
+Once errors are identified:it is necessary identify the precise location of the errors and to fix them.Each debugging approach has its own advantages and disadvantages:each is useful in appropriate circumstances.
+
+=== SLIDE 135 ===
+135 
+Brute-force method 
+This is the most common method of debugging: least efficient method. program is loaded with print statements print the intermediate values hope that some of printed values will help identify the error.
+
+=== SLIDE 136 ===
+136 
+Symbolic Debugger 
+Brute force approach becomes more systematic:with the use of a symbolic debugger, symbolic debuggers get their name for historical reasonsearly debuggers let you only see values from a program dump:determine which variable it corresponds to.
+
+=== SLIDE 137 ===
+137 
+Symbolic Debugger 
+Using a symbolic debugger:values of different variables can be easily checked and modifiedsingle stepping to execute one instruction at a timebreak points and watch points can be set to test the values of variables.
+
+=== SLIDE 138 ===
+138 
+Backtracking 
+This is a fairly common approach.  Beginning at the statement where an error symptom has been observed: source code is traced backwards until the error is discovered.
+
+=== SLIDE 139 ===
+139 
+Example 
+int main(){ int i,j,s; i=1; while(i<=10){	s=s+i;	i++; j=j++;}printf(“%d”,s);}
+
+=== SLIDE 140 ===
+140 
+Backtracking 
+Unfortunately, as the number of source lines to be traced back increases, the number of potential backward paths increasesbecomes unmanageably large  for complex programs.
+
+=== SLIDE 141 ===
+141 
+Cause-elimination method 
+Determine a list of causes:which could possibly have contributed to the error symptom.tests are conducted to eliminate each. A related technique of identifying error by examining error symptoms: software fault tree analysis.
+
+=== SLIDE 142 ===
+142 
+Program Slicing 
+This technique is similar to back tracking. However, the search space is reduced by defining slices.  A slice is defined for a particular variable at a particular statement: set of source lines preceding this statement which can influence the value of the variable.
+
+=== SLIDE 143 ===
+143 
+Example 
+int main(){ int i,s; i=1; s=1; while(i<=10){	s=s+i;	i++;}printf(“%d”,s);printf(“%d”,i);}
+
+=== SLIDE 144 ===
+144 
+Debugging Guidelines 
+Debugging usually requires a thorough understanding of the program design.Debugging may sometimes require full redesign of the system.  A common mistake novice programmers often make:not fixing the error but the error  symptoms.
+
+=== SLIDE 145 ===
+145 
+Debugging Guidelines 
+Be aware of the possibility:an error correction may introduce new errors. After every round of error-fixing: regression testing  must be carried out.
+
+=== SLIDE 146 ===
+146 
+Program Analysis Tools 
+An automated tool:takes program source code as input produces reports regarding several important characteristics of the program, such as size, complexity, adequacy of commenting, adherence to programming standards, etc.
+
+=== SLIDE 147 ===
+147 
+Program Analysis Tools 
+Some program analysis tools: produce reports regarding the adequacy of the test cases.There are essentially two categories of program analysis tools:Static analysis toolsDynamic analysis tools
+
+=== SLIDE 148 ===
+148 
+Static Analysis Tools 
+Static analysis tools: assess properties of a program without executing it. Analyze the source code provide analytical conclusions.
+
+=== SLIDE 149 ===
+149 
+Static Analysis Tools 
+Whether coding standards have been adhered to?Commenting is adequate?Programming errors such as:uninitialized variables mismatch between actual and formal parameters. Variables declared but never used, etc.
+
+=== SLIDE 150 ===
+150 
+Static Analysis Tools 
+Code walk through and inspection can also be considered as static analysis methods: however, the term static program analysis is generally used for automated analysis tools.
+
+=== SLIDE 151 ===
+151 
+Dynamic Analysis Tools 
+Dynamic program analysis tools require the program to be executed: its behavior recorded. Produce reports such as adequacy of test cases.
+
+=== SLIDE 152 ===
+152 
+Testing 
+The aim of testing  is to identify all defects in a software product.  However, in practice even after thorough testing:one cannot  guarantee that the software is error-free.
+
+=== SLIDE 153 ===
+153 
+Testing 
+The input data domain of most software products is very large: it is not practical to test the software exhaustively with each input data value.
+
+=== SLIDE 154 ===
+154 
+Testing 
+Testing does however expose many errors:testing provides a practical way of reducing defects in a system increases the users' confidence in a developed system.
+
+=== SLIDE 155 ===
+155 
+Testing 
+Testing is an important development  phase:requires the maximum effort among all development phases. In a typical development organization: maximum number of software engineers can be found to be engaged in testing activities.
+
+=== SLIDE 156 ===
+156 
+Testing 
+Many engineers have the wrong impression:testing is a secondary activityit is intellectually not as stimulating as the other development activities, etc.
+
+=== SLIDE 157 ===
+157 
+Testing 
+Testing a software product is in fact:as much challenging as initial development activities such as specification, design, and coding.  Also, testing involves a lot of creative thinking.
+
+=== SLIDE 158 ===
+158 
+Testing 
+Software products are tested at three levels:Unit testingIntegration testingSystem testing
+
+=== SLIDE 159 ===
+159 
+Unit testing 
+During unit testing, modules are tested in isolation:If all modules were to be tested together: it may not be easy to determine which module has the error.
+
+=== SLIDE 160 ===
+160 
+Unit testing 
+Unit testing reduces debugging effort several folds. Programmers carry out unit testing immediately after they complete the coding of a module.
+
+=== SLIDE 161 ===
+161 
+Integration testing 
+After different modules of a system have been coded and  unit tested: modules are integrated in steps according to an integration planpartially integrated system is tested at each integration step.
+
+=== SLIDE 162 ===
+162 
+System Testing 
+System testing involves:validating a fully developed system against its requirements.
+
+=== SLIDE 163 ===
+163 
+Integration Testing 
+Develop the integration plan by examining the structure chart :big bang approachtop-down approachbottom-up approachmixed approach
+
+=== SLIDE 164 ===
+164 
+ Example Structured Design 
+root 
+Get-good-data 
+Compute-solution 
+Display-solution 
+Get-data 
+Validate-data 
+Valid-numbers 
+Valid-numbers 
+rms 
+rms
+
+=== SLIDE 165 ===
+165 
+Big bang Integration Testing 
+Big bang approach is the simplest integration testing approach:all the modules are simply put together and tested. this technique is used only for very small systems.
+
+=== SLIDE 166 ===
+166 
+Big bang Integration Testing 
+Main problems with this approach: if an error is found: it is very difficult to localize the errorthe error may potentially belong to any of the modules being integrated. debugging errors found during big bang integration testing are very expensive to fix.
+
+=== SLIDE 167 ===
+167 
+Bottom-up Integration Testing 
+Integrate and test the bottom level modules first. A disadvantage of bottom-up testing:when the system is made up of a large number of small subsystems. This extreme case corresponds to the big bang approach.
+
+=== SLIDE 168 ===
+168 
+Top-down integration testing 
+Top-down integration testing starts with the main routine: and one or two subordinate routines in the system. After the top-level 'skeleton’ has been tested:immediate subordinate modules of the 'skeleton’ are combined with it and tested.
+
+=== SLIDE 169 ===
+169 
+Mixed integration testing 
+Mixed (or sandwiched) integration testing: uses both top-down and bottom-up testing approaches. Most common approach
+
+=== SLIDE 170 ===
+170 
+Integration Testing 
+In top-down approach:testing waits till all top-level modules are coded and unit tested. In bottom-up approach:testing can start only after bottom level modules are ready.
+
+=== SLIDE 171 ===
+171 
+System Testing 
+There are three main kinds of system testing:Alpha TestingBeta TestingAcceptance Testing
+
+=== SLIDE 172 ===
+172 
+Alpha Testing 
+System testing is carried out by the test team within the developing organization.
+
+=== SLIDE 173 ===
+173 
+Beta Testing 
+System testing performed by a select group of friendly customers.
+
+=== SLIDE 174 ===
+174 
+Acceptance Testing 
+System testing performed by the customer himself: to determine whether the system should be accepted or rejected.
+
+=== SLIDE 175 ===
+175 
+Stress Testing 
+Stress testing (aka endurance testing):impose abnormal input to stress the capabilities of the software. Input data volume, input data rate, processing time, utilization of memory, etc.  are tested beyond the designed capacity.
+
+=== SLIDE 176 ===
+176 
+How many errors are still remaining? 
+Seed the code with some known errors:artificial errors are introduced into the program. Check how many of the seeded errors are detected during testing.
+
+=== SLIDE 177 ===
+177 
+Error Seeding 
+Let:N be the total number of errors in the system n of these errors be found by testing. S be the total number of seeded errors,s of the seeded errors be found during testing.
+
+=== SLIDE 178 ===
+178 
+Error Seeding 
+n/N = s/S N = S   n/sremaining  defects: 	N - n = n   ((S - s)/ s)
+
+=== SLIDE 179 ===
+179 
+Example 
+100 errors were introduced. 90 of these errors were found during testing50 other errors were also found.Remaining errors= 50  (100-90)/90 = 6
+
+=== SLIDE 180 ===
+180 
+Error Seeding 
+The  kind of seeded errors should match  closely with existing errors:However, it is difficult to predict the types of errors that exist. Categories of  remaining errors:can be estimated by analyzing historical data from similar projects.
+
+=== SLIDE 181 ===
+181 
+Summary 
+Exhaustive testing of almost any non-trivial system is impractical. we need to design an optimal test suite that would expose as many errors as possible.
+
+=== SLIDE 182 ===
+182 
+Summary 
+If we select test cases randomly: many of the test cases may not add to the significance of the test suite. There are two approaches to testing: black-box testingwhite-box testing.
+
+=== SLIDE 183 ===
+183 
+Summary 
+Black box testing is also known as functional testing. Designing black box test cases:requires understanding only SRS document does not require any knowledge  about  design and code. Designing white box testing requires knowledge about design and code.
+
+=== SLIDE 184 ===
+184 
+Summary 
+We discussed black-box test case design strategies:equivalence partitioningboundary value analysisWe discussed some important issues in integration and system testing.
+

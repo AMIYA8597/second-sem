@@ -1,0 +1,605 @@
+﻿
+=== SLIDE 1 ===
+1 
+1 
+1 
+03/08/10 
+1 
+1 
+White-Box Testing (Part 1) 
+Dr. Durga Prasad MohapatraProfessorDepartment Of Computer Sc. & EngineeringNIT, Rourkela.
+
+=== SLIDE 2 ===
+2 
+Defect Reduction Techniques 
+ReviewTestingFormal verificationDevelopment processSystematic methodologies
+
+=== SLIDE 3 ===
+3 
+Why Test? 
+Ariane 5 rocket self-destructed 37 seconds after launchReason: A control software bug that went undetectedConversion from 64-bit floating point to 16-bit signed integer value had caused an exceptionThe floating point number was larger than 32767 Efficiency considerations had led to the disabling of the exception handler.Total Cost: over $1 billion
+
+=== SLIDE 4 ===
+4 
+How Do You Test a Program? 
+Input test data to the program.Observe the output:Check if the program behaved as expected.
+
+=== SLIDE 5 ===
+5 
+How Do You Test a Program?
+
+=== SLIDE 6 ===
+6 
+How Do You Test a Program? 
+If the program does not behave as expected:Note the conditions under which it failed.Later debug and correct.
+
+=== SLIDE 7 ===
+7 
+What’s So Hard About Testing ? 
+Consider	  int proc1(int x, int y)Assuming a 64 bit computerInput space = 2128Assuming it takes 10secs to key-in an integer pairIt would take about a billion years to enter all possible values!Automatic testing has its own problems!
+
+=== SLIDE 8 ===
+8 
+Testing Facts 
+Consumes largest effort among all phasesLargest manpower among all other development rolesImplies more job opportunitiesAbout 50% development effortBut 10% of development time?How?
+
+=== SLIDE 9 ===
+9 
+Testing Facts 
+Testing is getting more complex and sophisticated every year.Larger and more complex programsNewer programming paradigms
+
+=== SLIDE 10 ===
+10 
+Overview of Testing Activities 
+Test Suite DesignRun test cases and observe results to detect failures.Debug to locate errorsCorrect errors.
+
+=== SLIDE 11 ===
+11 
+Error, Faults, and Failures 
+A failure is a manifestation of an  error (also defect or  bug).Mere presence of an error may not lead to a failure.
+
+=== SLIDE 12 ===
+12 
+Pesticide Effect 
+Errors that escape a fault detection technique:Can not be detected by further applications of that technique.
+
+=== SLIDE 13 ===
+13 
+Pesticide Effect 
+Assume we use 4 fault detection techniques and 1000 bugs:Each detects only 70% bugsHow many bugs would remain1000*(0.3)4=81 bugs
+
+=== SLIDE 14 ===
+14 
+Fault Model 
+Types of faults possible in a program.Some types can be ruled outConcurrency related-problems in a sequential program
+
+=== SLIDE 15 ===
+15 
+Fault Model of an OO Program 
+OO Faults 
+Structural  Faults 
+Algorithmic  Faults 
+Procedural  Faults 
+Traceability  Faults 
+OO  Faults 
+Incorrect  Result 
+Inadequate  Performance
+
+=== SLIDE 16 ===
+16 
+Hardware Fault-Model 
+Simple:Stuck-at 0Stuck-at 1Open circuitShort circuitSimple ways to test the presence of eachHardware testing is fault-based testing
+
+=== SLIDE 17 ===
+17 
+Software Testing 
+Each test case typically tries to establish correct working of some functionalityExecutes (covers) some program elementsFor restricted types of faults, fault-based testing exists.
+
+=== SLIDE 18 ===
+18 
+Test Cases and Test Suites 
+Test a software using a set of carefully designed test cases:The set of all test cases is called the test suite
+
+=== SLIDE 19 ===
+19 
+Test Cases and Test Suites 
+A test case is a triplet [I,S,O]I is the data to be input to the system, S is the state of the system at which the data will be input,O is the expected output of the system.
+
+=== SLIDE 20 ===
+20 
+Verification versus Validation 
+Verification is the process of determining:Whether output of one phase of development conforms to its previous phase.Validation is the process of determining:Whether a fully developed system conforms to its SRS document.
+
+=== SLIDE 21 ===
+21 
+Verification versus Validation 
+Verification is concerned with phase containment of errors, Whereas the aim of validation is that the final product be error free.
+
+=== SLIDE 22 ===
+22 
+Design of Test Cases 
+Exhaustive testing of any non-trivial system is impractical: Input data domain is extremely large. Design an optimal test suite:Of reasonable size and  Uncovers as many errors as possible.
+
+=== SLIDE 23 ===
+23 
+Design of Test Cases 
+If test cases are selected randomly: Many test cases would not contribute to the significance of the test suite,  Would not detect errors not already being detected by other test cases in the suite.Number of test cases in a randomly selected test suite:Not an indication of effectiveness of testing.
+
+=== SLIDE 24 ===
+24 
+Design of Test Cases 
+Testing a system using a large number of randomly selected test cases:Does not mean that  many errors in the system will be uncovered.Consider following example:Find the maximum of two integers  x and  y.
+
+=== SLIDE 25 ===
+25 
+Design of Test Cases 
+The code has a simple programming error:  If (x>y) max = x;                		else max = x;Test suite {(x=3,y=2);(x=2,y=3)} can detect the error, A larger test suite {(x=3,y=2);(x=4,y=3); (x=5,y=1)} does not detect the error.
+
+=== SLIDE 26 ===
+26 
+Design of Test Cases 
+Systematic approaches are required to design an optimal test suite:Each test case in the suite should detect different errors.
+
+=== SLIDE 27 ===
+27 
+Design of Test Cases 
+There are essentially three main approaches to design test cases:Black-box approachWhite-box (or glass-box) approachGrey-box testing
+
+=== SLIDE 28 ===
+28 
+Black-Box Testing 
+Test cases are designed using only functional specification of the software:Without any knowledge of the internal structure of the software.For this reason, black-box testing is also known as  functional testing.
+
+=== SLIDE 29 ===
+29 
+White-box Testing 
+Designing white-box test cases: Requires knowledge about the internal structure of software. White-box testing is also called structural testing.In this unit we will not study white-box testing.
+
+=== SLIDE 30 ===
+30 
+White-Box Testing 
+There exist several popular white-box testing methodologies:Statement coverageBranch coveragePath coverageCondition coverageMC/DC coverageMutation testingData flow-based testing
+
+=== SLIDE 31 ===
+31 
+Why Both BB and WB Testing? 
+Black-boxImpossible to write a test case for every possible set of inputs and outputsSome code parts may not be reachable Does not tell if extra functionality has been implemented. 
+White-boxDoes not address the question of whether or not a program matches the specificationDoes not tell you if all of the functionality has been implementedDoes not discover missing program logic
+
+=== SLIDE 32 ===
+32 
+Coverage-Based Testing Versus Fault-Based Testing 
+Idea behind coverage-based testing:Design test cases so that certain program elements are executed (or covered).Example: statement coverage, path coverage, etc.Idea behind fault-based testing:Design test cases that focus on discovering certain types of faults.Example: Mutation testing.
+
+=== SLIDE 33 ===
+33 
+Statement Coverage 
+Statement coverage methodology:Design test cases so that every statement in the program is executed at least once.
+
+=== SLIDE 34 ===
+34 
+Statement Coverage 
+The principal idea: Unless a statement is executed, We have no way of knowing  if an error exists in that statement.
+
+=== SLIDE 35 ===
+35 
+Statement Coverage Criterion 
+Observing that a statement behaves properly for one input value:No guarantee that it will behave correctly for all input values.
+
+=== SLIDE 36 ===
+36 
+Statement Testing 
+Coverage measurement:		# executed statements		     # statementsRationale: a fault in a statement can only be revealed by executing the faulty statement
+
+=== SLIDE 37 ===
+37 
+Example 
+int f1(int x, int y){                    1 while (x != y){2    if (x>y) then 3         x=x-y;4    else y=y-x;5 }6 return x;        } 
+Euclid's GCD Algorithm
+
+=== SLIDE 38 ===
+38 
+Euclid's GCD Algorithm 
+By choosing the test set {(x=3,y=3),(x=4,y=3), (x=3,y=4)}All statements are executed at least once.
+
+=== SLIDE 39 ===
+39 
+Branch Coverage 
+Test cases are designed such that:Different branch conditionsGiven true and false values in turn.
+
+=== SLIDE 40 ===
+40 
+Branch Coverage 
+Branch testing guarantees statement coverage:A stronger testing compared to the statement coverage-based testing.
+
+=== SLIDE 41 ===
+41 
+Stronger Testing 
+Test cases are a superset of a weaker testing:A stronger testing covers at least all the elements of the elements covered by a weaker testing.
+
+=== SLIDE 42 ===
+42 
+Stronger, Weaker, and Complementary Testing 
+Weaker 
+Complementary
+
+=== SLIDE 43 ===
+43 
+Example 
+int f1(int x,int y){                    1 while (x != y){2    if (x>y) then 3         x=x-y;4    else y=y-x;5 }6 return x;        }
+
+=== SLIDE 44 ===
+44 
+Example 
+Test cases for branch coverage can be:{(x=3,y=3),(x=3,y=2), (x=4,y=3), (x=3,y=4)}
+
+=== SLIDE 45 ===
+45 
+Branch Testing 
+Adequacy criterion: Each branch (edge in the CFG) must be executed at least once Coverage:		#  executed branches		     # branches
+
+=== SLIDE 46 ===
+46 
+Statements vs Branch Testing 
+Traversing all edges of a graph causes all nodes to be visitedSo test suites that satisfy the branch adequacy criterion for a program P also satisfy the statement adequacy criterion for the same programThe converse is not true A statement-adequate (or node-adequate) test suite may not be branch-adequate (edge-adequate)
+
+=== SLIDE 47 ===
+47 
+All Branches can still miss conditions 
+Sample fault: missing operator (negation)		digit_high == 1 || digit_low == -1Branch adequacy criterion can be satisfied by varying only digit_lowThe faulty sub-expression might never determine the resultWe might never really test the faulty condition, even though we tested both outcomes of the branch
+
+=== SLIDE 48 ===
+48 
+Condition Coverage 
+Test cases are designed such that:Each component of a composite conditional expression  Given both true and false values.
+
+=== SLIDE 49 ===
+49 
+Example 
+Consider the conditional expression ((c1.and.c2).or.c3):Each of c1, c2,  and  c3  are exercised at least once, i.e. given true and false values.
+
+=== SLIDE 50 ===
+50 
+Basic condition testing 
+Adequacy criterion: each basic condition must be executed at least onceCoverage:	# truth values taken by all basic conditions		     2 * # basic conditions
+
+=== SLIDE 51 ===
+51 
+Branch Testing 
+Branch testing is the simplest condition testing strategy:Compound conditions appearing in different branch statements Are given true and false values.
+
+=== SLIDE 52 ===
+52 
+Branch Testing 
+Condition testing:Stronger testing than branch testing.Branch testing:Stronger than statement coverage testing.
+
+=== SLIDE 53 ===
+53 
+Condition Coverage 
+Consider a boolean expression having n components: For condition coverage we require 2n test cases. Condition coverage-based testing technique:Practical only if n (the number of component conditions) is small.
+
+=== SLIDE 54 ===
+54 
+Modified condition/decision (MC/DC) 
+Motivation: Effectively test important combinations of conditions, without exponential blowup in test suite size “Important” combinations means: Each basic condition shown to independently affect the outcome of each decisionRequires:  For each basic condition C, two test cases,values of all evaluated conditions except C are the samecompound condition as a whole evaluates to true for one and false for the other
+
+=== SLIDE 55 ===
+55 
+What is MC/DC? 
+MC/DC stands for Modified  Condition / Decision CoverageA kind of Predicate Coverage techniqueCondition: Leaf level Boolean expression.Decision: Controls the program flow.Main idea: Each condition must be shown to independently affect the outcome of a decision, i.e. the outcome of a decision changes as a result of changing a single condition.
+
+=== SLIDE 56 ===
+56 
+If ((a)    &      (b)    |     (c)) then… 
+Condition Coverage 
+Every condition in the decision has taken all possible outcomes at least once. 
+true 
+false 
+true 
+false 
+true 
+false
+
+=== SLIDE 57 ===
+57 
+MC/DC Coverage 
+Every condition in the decision independently affects the decision’s outcome. 
+If ((a)   &     (b)    |    (c)) then… 
+true 
+false 
+true 
+false 
+Change the value of each condition individually while keeping all other conditions constant.
+
+=== SLIDE 58 ===
+58 
+MC/DC: linear complexity 
+N+1 test cases for N basic conditions(((a || b) && c) || d) && e	Test 		a 		b 		c 		d		e 		outcome	Case	(1)		true		--		true		--		true		true	(2)		false		true		true		--		true		true	(3)		true		--		false		true		true		true			(6)		true		--		true		--		false		false	(11)		true		--		false		false		--		false	(13)		false		false		--		false		--		false	Underlined values independently affect the output of the decisionRequired by the RTCA/DO-178B standard
+
+=== SLIDE 59 ===
+59 
+Comments on MC/DC 
+MC/DC is basic condition coverage (C)branch coverage (DC)plus one additional condition (M): every condition must independently affect the decision’s outputIt is subsumed by compound conditions and subsumes all other criteria discussed so farstronger than statement and branch coverageA good balance of thoroughness and test size  (and therefore widely used)
+
+=== SLIDE 60 ===
+60 
+Creating MC/DC test cases 
+If (A and B) then…(1) create truth table for conditions.(2) Extend truth table so that it indicated which test cases can be used to show the independence of each condition.
+
+=== SLIDE 61 ===
+61 
+Creating test cases cont’d 
+Show independence of A:Take 1 + 3Show independence of B:Take 1 + 2Resulting test cases are 1 + 2 + 3(T , T) + (T , F) + (F , T)
+
+=== SLIDE 62 ===
+62 
+More advanced example 
+If (A and (B or C)) then… 
+Note: We want to determine the MINIMAL set of test casesHere: {2,3,4,6}{2,3,4,7}Non-minimal set is:{1,2,3,4,5}
+
+=== SLIDE 63 ===
+63 
+Where does it fit in? 
+The MC/DC criterion is much stronger than the condition/decision coverage criterion, but the number of test cases to achieve the MC/DC criterions still varies linearly with the number of conditions n in the decisions.Much more complete coverage than condition/decision coverage, butat the same time it is not terribly costly in terms of number of test cases.
+
+=== SLIDE 64 ===
+64 
+Path Coverage 
+Design test cases such that:All linearly independent paths in the program are executed at least once.Defined in terms ofControl flow graph (CFG) of a program.
+
+=== SLIDE 65 ===
+65 
+Path Coverage-Based Testing 
+To understand the path coverage-based testing: we need to learn how to draw control flow graph of a program.A control flow graph (CFG) describes: The sequence in which different instructions of a program get executed. The way control flows through the program.
+
+=== SLIDE 66 ===
+66 
+How to Draw Control Flow Graph? 
+Number all statements of a program. Numbered statements: Represent nodes of control flow graph. An edge from one node to another node exists: If execution of the statement representing the first node Can result in transfer of control to the other node.
+
+=== SLIDE 67 ===
+67 
+Example 
+int f1(int x,int y){                    1 while (x != y){2    if (x>y) then 3         x=x-y;4    else y=y-x;5 }6 return x;        }
+
+=== SLIDE 68 ===
+68 
+Example Control Flow Graph
+
+=== SLIDE 69 ===
+69 
+How to Draw Control flow Graph? 
+Sequence:1  a=5;2  b=a*b-1;
+
+=== SLIDE 70 ===
+70 
+How to Draw Control Flow Graph? 
+Selection:1 if(a>b) then2          c=3;3 else   c=5;4 c=c*c;
+
+=== SLIDE 71 ===
+71 
+How to Draw Control Flow Graph? 
+Iteration:1 while(a>b){2       b=b*a;3        b=b-1;}4 c=b+d;
+
+=== SLIDE 72 ===
+72 
+Example Code Fragment
+
+=== SLIDE 73 ===
+73 
+Example Control Flow Graph 
+Source:  The Art of Software Testing – Glenford Myers
+
+=== SLIDE 74 ===
+74 
+Path 
+A path through a program:A node and edge sequence from the starting node to a terminal node of the control flow graph. There may be several terminal nodes for  program.
+
+=== SLIDE 75 ===
+75 
+Linearly Independent Path 
+Any path through the program:Introduces at least one new edge:Not included in any other  independent paths.
+
+=== SLIDE 76 ===
+76 
+Independent path 
+It is straight forward: To identify linearly independent paths of simple programs.For complicated programs:It is not easy to determine the number of independent paths.
+
+=== SLIDE 77 ===
+77 
+McCabe's Cyclomatic Metric  
+An upper bound: For the number of linearly independent paths of a program Provides a practical way of determining: The maximum number of linearly independent paths in a program.
+
+=== SLIDE 78 ===
+78 
+McCabe's Cyclomatic Metric  
+Given a control flow graph G,cyclomatic complexity V(G):  V(G)= E-N+2N is the number of  nodes in GE is the number of edges in G
+
+=== SLIDE 79 ===
+79 
+Example Control Flow Graph  
+Cyclomatic complexity = 7-6+2 = 3.
+
+=== SLIDE 80 ===
+80 
+Cyclomatic Complexity 
+Another way of computing cyclomatic complexity: inspect control flow graphdetermine number of bounded areas in the graphV(G) = Total number of bounded areas + 1Any  region enclosed by a nodes and edge sequence.
+
+=== SLIDE 81 ===
+81 
+Example Control Flow Graph
+
+=== SLIDE 82 ===
+82 
+Example 
+From a visual examination of the CFG:Number of bounded areas is 2. Cyclomatic complexity = 2+1=3.
+
+=== SLIDE 83 ===
+83 
+Cyclomatic Complexity 
+McCabe's metric provides:A quantitative measure of  testing difficulty and the ultimate reliability Intuitively, Number of bounded areas increases with the number of decision nodes and loops.
+
+=== SLIDE 84 ===
+84 
+Cyclomatic Complexity 
+The first method of computing V(G) is amenable to automation:You can write a program which determines the number of nodes and edges of a graph Applies the formula to find V(G).
+
+=== SLIDE 85 ===
+85 
+Cyclomatic Complexity 
+The cyclomatic complexity of a program provides:A lower bound on the number of test cases to be designedTo guarantee coverage of all linearly independent paths.
+
+=== SLIDE 86 ===
+86 
+Cyclomatic Complexity 
+A measure of the number of independent paths in a program.Provides a lower bound:for the number of test cases for path coverage.
+
+=== SLIDE 87 ===
+87 
+Cyclomatic Complexity 
+Knowing the number of test cases required: Does not make it any easier to derive the test cases, Only gives an indication of the minimum number of test cases required.
+
+=== SLIDE 88 ===
+88 
+Practical Path Testing 
+The tester proposes initial set of test data :Using his experience and judgement. A dynamic program analyzer used: Measures which parts of the program have been testedResult used to determine when to stop testing.
+
+=== SLIDE 89 ===
+89 
+Derivation of Test Cases 
+Draw control flow graph.Determine V(G).Determine the set of linearly independent paths.Prepare test cases: to force execution along each path.
+
+=== SLIDE 90 ===
+90 
+Example 
+int f1(int x,int y){                    1 while (x != y){2    if (x>y) then 3         x=x-y;4    else y=y-x;5 }6 return x;        }
+
+=== SLIDE 91 ===
+91 
+Example Control Flow Diagram
+
+=== SLIDE 92 ===
+92 
+Derivation of Test Cases 
+Number of independent paths: 31,6     test case (x=1, y=1)1,2,3,5,1,6 test case(x=1, y=2)1,2,4,5,1,6  test case(x=2, y=1)
+
+=== SLIDE 93 ===
+93 
+An Interesting Application of Cyclomatic Complexity 
+Relationship exists between:McCabe's metricThe number of errors existing in the code, The time required to find and correct the errors.
+
+=== SLIDE 94 ===
+94 
+Cyclomatic Complexity 
+Cyclomatic complexity of a program: Also indicates the psychological complexity of a program. Difficulty level of understanding the program.
+
+=== SLIDE 95 ===
+95 
+Cyclomatic Complexity 
+From maintenance perspective, Limit cyclomatic complexity of modules To some reasonable value. Good software development organizations: Restrict cyclomatic complexity of functions to a maximum of ten or so.
+
+=== SLIDE 96 ===
+96 
+White-Box Testing :  Summary 
+statementcoverage 
+conditioncoverage 
+branch(or decision)coverage 
+branch and condition (or condition /decision) coverage 
+pathcoverage 
+modified condition / decision coverage 
+strongest 
+weakest 
+independent path (or basis path)coverage 
+multiple- conditioncoverage 
+only if paths across composite conditions are distinguished
+
+=== SLIDE 97 ===
+97 
+Data Flow-Based Testing 
+Selects test paths of a program: According to the locations ofDefinitions and uses of different variables in a program.
+
+=== SLIDE 98 ===
+98 
+Data Flow-Based Testing 
+For a statement numbered S, DEF(S) = {X/statement S contains a definition of X} USES(S)= {X/statement S contains a use of X}Example: 1: a=b; DEF(1)={a}, USES(1)={b}.Example: 2: a=a+b; DEF(1)={a}, USES(1)={a,b}.
+
+=== SLIDE 99 ===
+99 
+Data Flow-Based Testing 
+A variable X is said to be live at statement S1, ifX is defined at a statement S: There exists a path from S to S1 not containing any definition of X.
+
+=== SLIDE 100 ===
+100 
+DU Chain Example 
+1 X(){2  a=5; /* Defines variable a */3  While(C1) {                   		4     if (C2)                        5           b=a*a;   /*Uses variable a */6           a=a-1; /* Defines variable a */7     }8   print(a); } /*Uses variable a */
+
+=== SLIDE 101 ===
+101 
+Definition-use chain (DU chain) 
+[X,S,S1], S and S1 are statement numbers, X in DEF(S)X in USES(S1), and the definition of X in the statement S is live at statement S1.
+
+=== SLIDE 102 ===
+102 
+Data Flow-Based Testing 
+One simple data flow testing strategy: Every DU chain in a program be covered at least once.Data flow testing strategies:Useful for selecting test paths of a program containing nested if and loop statements.
+
+=== SLIDE 103 ===
+103 
+1 X(){2  B1;      /* Defines variable a */3  While(C1) {                   		4     if (C2)                        5           if(C4) B4; /*Uses variable a */                       6 	     else B5;7          else  if (C3) B2;              8 	     else B3;     }9  B6 } 
+Data Flow-Based Testing
+
+=== SLIDE 104 ===
+104 
+Data Flow-Based Testing 
+[a,1,5]: a DU chain.Assume:DEF(X) = {B1, B2, B3, B4, B5} USED(X) = {B2, B3, B4, B5, B6}There are 25 DU chains. However only 5 paths are needed to cover these chains.
+
+=== SLIDE 105 ===
+105 
+Mutation Testing 
+The software is first tested:using an initial testing method based on white-box strategies we already discussed.After the initial testing is complete,mutation testing is taken up.The idea behind mutation testing: make a few arbitrary small changes to a program at a time.
+
+=== SLIDE 106 ===
+106 
+Mutation Testing 
+Each time the program is changed, it is called a mutated program the change is called a mutant.
+
+=== SLIDE 107 ===
+107 
+Mutation Testing 
+A  mutated program:Tested against the full test suite of the program. If there exists at least one test case in the test suite for which:A mutant gives an incorrect result, Then the mutant is said to be dead.
+
+=== SLIDE 108 ===
+108 
+Mutation Testing 
+If a mutant remains alive: even after all test cases have been exhausted, the test suite is enhanced to kill the mutant. The process of generation and killing of mutants: can be automated by predefining a set of primitive changes that can be applied to the program.
+
+=== SLIDE 109 ===
+109 
+Mutation Testing 
+The primitive changes can be:altering an arithmetic operator, changing the value of a constant, changing a data type, etc.
+
+=== SLIDE 110 ===
+110 
+Mutation Testing 
+A major disadvantage of  mutation testing:computationally very expensive, a large number of possible mutants can be generated.
+
+=== SLIDE 111 ===
+111 
+Summary 
+Exhaustive testing of non-trivial systems is impractical:We need to design an optimal set of test cases Should expose as many errors as possible. If we select test cases randomly:many of the selected test cases do not add to the significance of the test set.
+
+=== SLIDE 112 ===
+112 
+Summary 
+There are two approaches to testing: black-box testing and white-box testing.Designing test cases for black box testing:does not require any knowledge of how the functions have been designed and implemented. Test cases can be designed by examining only SRS document.
+
+=== SLIDE 113 ===
+113 
+Summary 
+White box testing: Requires knowledge about internals of the software.Design and code is required.We have discussed a few white-box test strategies.Statement coveragebranch coveragecondition coveragepath coverage
+
+=== SLIDE 114 ===
+114 
+Summary 
+A stronger testing strategy:Provides more number of significant test cases than a weaker one.Condition coverage is strongest among strategies we discussed.We discussed McCabe’s Cyclomatic complexity metric:Provides an upper bound for linearly independent pathsCorrelates with understanding, testing, and debugging difficulty of a program.
+

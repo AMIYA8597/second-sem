@@ -1,0 +1,124 @@
+﻿
+=== SLIDE 1 ===
+Mutation Testing 
+Dr. Durga Prasad MohapatraDept. of Computer Science & EngineeringNIT Rourkela
+
+=== SLIDE 2 ===
+Introduction  
+Mutation testing is the process of mutating some segment of   code(putting some error in the code) and then, testing this mutated code with some data.If the test data is able to detect the mutations in the code, then the test data is quite good, otherwise we must focus on the quality of the test data.
+
+=== SLIDE 3 ===
+Introduction       cont... 
+Mutation testing helps a user create test data by interacting with user to iteratively strengthen quality of test data. During mutation testing, faults are introduced into a program.Test data are used to execute these faulty programs with the goal of causing each faulty program to fail. Faulty programs are called mutants of the original program.
+
+=== SLIDE 4 ===
+Introduction       cont... 
+A mutant is said to be killed when a test case causes it to fail.When this happens, the mutant is considered dead and no longer needs to remain in the testing process, since the faults represented by that mutant have been detected.
+
+=== SLIDE 5 ===
+5 
+Introduction       cont... 
+The software is first tested:using an initial testing method based on white-box strategies.After the initial testing is complete,mutation testing is taken up.
+
+=== SLIDE 6 ===
+6 
+Main Idea 
+The idea behind mutation testing:       - make a few arbitrary small         changes to a program at a time.
+
+=== SLIDE 7 ===
+Main Idea     cont … 
+Insert faults into a program:Check whether the test suite is able to detect these.This either validates or invalidates the test suite.
+
+=== SLIDE 8 ===
+8 
+Main Idea   cont … 
+Each time the program is changed, it is called a mutated program the change is called a mutant.
+
+=== SLIDE 9 ===
+9 
+Main Idea   cont … 
+A  mutated program:Tested against the full test suite of the program. If there exists at least one test case in the test suite for which:A mutant gives an incorrect result, Then the mutant is said to be dead.
+
+=== SLIDE 10 ===
+10 
+Main Idea   cont … 
+If a mutant remains alive: even after all test cases have been exhausted, the test suite is enhanced to kill the mutant. The process of generation and killing of mutants: can be automated by predefining a set of primitive changes that can be applied to the program.
+
+=== SLIDE 11 ===
+11 
+Primitive changes 
+The primitive changes can be:Deleting a statementAltering an arithmetic operator, Changing the value of a constant, Changing a data type, etc.
+
+=== SLIDE 12 ===
+Traditional Mutation Operators 
+Deletion of a statementBoolean:Replacement of a statement with another	eg.  == and >=, < and <=Replacement of boolean expressions with true or false   eg.  a || b with trueReplacement of arithmetic	eg.  * and +, / and -Replacement of a variable (ensuring same scope/type)
+
+=== SLIDE 13 ===
+Underlying Hypotheses 
+Mutation testing is based on the following two hypotheses:The Competent Programmer HypothesisThe Coupling EffectBoth of these were proposed by DeMillo et al.,1978
+
+=== SLIDE 14 ===
+The Competent Programmer Hypothesis 
+Programmers create programs that are close to being correct:Differ from the correct program by some simple errors.
+
+=== SLIDE 15 ===
+The Coupling Effect 
+Complex errors are caused due to several simple errors.It therefore suffices to check for the presence of the simple errors
+
+=== SLIDE 16 ===
+Types of mutants 
+Primary MutantSecondary Mutant
+
+=== SLIDE 17 ===
+Primary Mutant 
+When the mutants are single modification of the initial program using some operators, they are called primary mutants. Example              if(a>b)               x=x + y;      else                x = y;      Printf(“%d”, x);       ……We can consider following mutant for this example;M1:   x=x-y;M2:   x=x/y;M3:  x=x+1;M4:  printf(“%d”, y);
+
+=== SLIDE 18 ===
+Example   cont … 
+The results of the initial program and its mutant
+
+=== SLIDE 19 ===
+Secondary Mutants 
+When multiple levels of mutation are applied on the initial program, then, this class of mutant is called secondary Mutant. In this case, it is very difficult to identify the initial program form its mutants.
+
+=== SLIDE 20 ===
+Example 
+If(a<b)   c = a; Mutants for this code may be as follows: M1 : if(a<= b-1)                     c =a;M2 : if(a+1<=b)                   c = a;M3 : if(a == b)           c =a+1;
+
+=== SLIDE 21 ===
+Mutation Testing Process     
+Program 
+Tests 
+Problem with Tests?
+
+=== SLIDE 22 ===
+Mutation Testing Process   cont… 
+Construct the mutants of a test program.Add test cases to the mutation system and check the output of the program on each test case to see if it is correct.If the output is incorrect, a fault has been found and the program must be modified and the process restarted.If the output is correct, that test case is executed against each live mutant.If the output of a mutant differs from that of the original program on the same test case, the mutant is assumed to be incorrect and is killed.
+
+=== SLIDE 23 ===
+Mutation Testing Process    cont… 
+After each test case has been executed against each live mutant, each remaining mutant falls into one of the following two categories:One, the mutant is functionally equivalent to the original program. An equivalent mutant always produces the same output as the original program, so no test case can kill it.Two, the mutant is killable, but the set of test cases is insufficient to kill it. In this case, new test cases need to be created, and the process iterates until the test set is strong enough to satisfy the tester.
+
+=== SLIDE 24 ===
+Mutation Testing Process    cont… 
+The mutation score for a set of test data is the percentage of non-equivalent mutants killed by that data. If the mutation score is 100%, then the test data is called mutation adequate.
+
+=== SLIDE 25 ===
+Equivalent Mutants 
+There may be surviving mutants that cannot be killed, These are called Equivalent MutantsAlthough syntactically different:These mutants are indistinguishable through testing.Therefore have to be checked ‘by hand’
+
+=== SLIDE 26 ===
+Disadvantages of Mutation Testing 
+Equivalent mutants Computationally very expensive.A large number of possible mutants can be generated.Certain types of faults are very difficult to inject.Only simple syntactic faults introduced
+
+=== SLIDE 27 ===
+Quiz 1 
+Identify one advantage and one disadvantage of the mutation test technique.
+
+=== SLIDE 28 ===
+Quiz 1: Solution 
+Identify two advantages and two disadvantages of the mutation test technique.Adv: Can be automatedHelps effectively strengthen  black box and coverage-based test suiteDisadv:Equivalent mutants
+
+=== SLIDE 29 ===
+Thank You
+

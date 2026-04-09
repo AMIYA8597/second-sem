@@ -1,0 +1,225 @@
+﻿
+=== SLIDE 1 ===
+Test management                                    
+Prof. Durga Prasad MohapatraProfessorDept. of CSE, NIT Rourkela
+
+=== SLIDE 2 ===
+Test Management 
+Test management is concerned with both test resource and test environment management.It is the role of test management to ensure that new or modified service products meet the business requirements for which they have been developed or enhanced.
+
+=== SLIDE 3 ===
+Key elements of test management 
+Test organization.Test planning.Detailed test design and test specifications.Test monitoring and assessment.Product quality assurance.
+
+=== SLIDE 4 ===
+Test organization 
+It is the process of setting up and managing a suitable test organizational structure and defining explicit roles.The project framework under which the testing activities will be carried out is reviewed, high-level test phase plans are prepared, and resource schedules are considered.Test organization also involves the determination of configuration standards and defining the test environment.
+
+=== SLIDE 5 ===
+Test planning 
+The requirements definition and design specifications facilitate the identification of major test items and these may necessitate updating the test strategy.A detailed test plan and schedule is prepared with key test responsibilities being indicated.
+
+=== SLIDE 6 ===
+Detailed test design and test specifications 
+A detailed design is the process of designing a meaningful and useful structure for the tests as a whole.It specifies the details of the test approach for a software functionality or feature and identifying the associated test cases.
+
+=== SLIDE 7 ===
+Test monitoring and assessment 
+It is the ongoing monitoring and assessment to check the integrity of development and construction.The status of configuration items should be reviewed against the phase plans and the test progress reports prepared, to ensure the verification and validation activities are correct.
+
+=== SLIDE 8 ===
+Product quality assurance 
+The decision to negotiate the acceptance testing program and the release and commissioning of the service product is subject to the 'product assurance' role being satisfied with the outcome of the verification and validation activities.Product assurance may oversee some of the test activity and may participate in process reviews.
+
+=== SLIDE 9 ===
+Test Organization I 
+Since testing is viewed as a process, it must have an organization such that a testing group works for better testing and high quality software. 
+Test Organization I
+
+=== SLIDE 10 ===
+The testing group activities: 
+Maintenance and application of test policiesDevelopment and application of testing standardsParticipation in requirement, design and code reviewsTest planningTest executionTest measurementTest monitoringDefect trackingAcquisition of testing toolsTest reporting
+
+=== SLIDE 11 ===
+Test Organization II 
+The staff members of such a testing group are called test specialists or test engineers or simply testers.A tester is not a developer or an analyst.He does not debug the code or repair.He is responsible for ensuring that testing is effective and quality issues are being addressed.The skills a tester should possess arePersonal and Managerial SkillsTechnical Skills
+
+=== SLIDE 12 ===
+Personal and Managerial Skills 
+Testers must be able to contribute in policy-making and planning the testing activities.must be able to work in a team.must be able to organize & monitor information, tasks, and people.must be able to interact with other engineering professionals, software quality assurance staff, and clients.should be capable of training & mentoring new testers.should be creative, imaginative, and experiment-oriented.must have written and oral communication skills.
+
+=== SLIDE 13 ===
+Technical Skills I 
+Testers must be technically sound, capable of understanding software engineering principles and practices.must be good in programming skills.must have an understanding of testing basics, principles, and practices.must have a good understanding and practice of testing strategies and methods to develop test cases.
+
+=== SLIDE 14 ===
+Technical Skills II 
+must have the ability to plan, design, and execute test cases with the goal of logic coverage.must have technical knowledge of networks, databases, operating systems, etc. needed to work in a project environment.must have the knowledge of configuration mgt.must have the knowledge of test-ware and the role of each document in the testing process.must have knowledge about quality issues & standards.
+
+=== SLIDE 15 ===
+Structure of Testing Group 
+Testing is an important part of any software project.One or two testers are not sufficient to perform testing, especially if the project is too complex and large.Therefore, many testers are required at various levels.Figure 1 shows different types of testers in a hierarchy.
+
+=== SLIDE 16 ===
+Structure of Testing Group contd….. 
+Figure 1: Testing Group Hierarchy
+
+=== SLIDE 17 ===
+Responsibilities of  Test Manager 
+He is the key person in testing group who will interact with project management, quality assurance, and marketing staff.Takes responsibility for making test strategies with detailed master planning and schedule.Interacts with customers regarding quality issues.Acquires all the testing resources including tools.Monitors progress of testing & controls the events.Participates in all static verification meetings.Hires and evaluates the test team members.
+
+=== SLIDE 18 ===
+Responsibilities of  Test Leader 
+Planning testing tasks given by the test manager.Assigning testing tasks to test engineers who are working under him.Supervising test engineers. (prime responsibility) Acquires all the testing resources including tools.Helping the test engineers in test case design, execution, and reporting.Providing tool training, if required.Interacting with customers.
+
+=== SLIDE 19 ===
+Responsibilities of  Test Engineers 
+Designing test cases.Developing test harness.Set-up test laboratories and environment.Maintain the test and defect repositories.
+
+=== SLIDE 20 ===
+Junior Test Engineers 
+Junior test engineers are newly hired testers.They usually are trained about the test strategy, test process, and testing tools.They participate in test design and execution with experienced test engineers.
+
+=== SLIDE 21 ===
+Test Planning 
+According to the test process as discussed in STLC, testing also needs planning as is needed in SDLC. Since software projects become uncontrolled if not planned properly, the testing process is also not effective if not planned earlier. Moreover, if testing is not effective in a software project, it also affects the final software product. Therefore, for a quality software, testing activities must be planned as soon as the project planning starts. A test plan is defined as a document that describes the scope, approach, resources, and schedule of intended testing activities.
+
+=== SLIDE 22 ===
+Test Planning    cont….. 
+ Test plan is driven with the business goals of the product. In order to meet a set of goals, the test plan identifies the followings:Test itemsFeatures to be testedTesting tasksTools selectionTime and effort estimateWho will do each taskAny risksMilestones
+
+=== SLIDE 23 ===
+Test Plan IdentifierIntroductionTest-Item to be testedFeatures to be testedFeatures not to be testedApproachItem Pass/Fail CriteriaSuspension criteria and resumption requirementsTest deliverablesTesting tasksEnvironmental needsResponsibilitiesStaffing and training needsSchedulingRisks and contingenciesTesting costsApprovals 
+Test Plan Components
+
+=== SLIDE 24 ===
+Test Plan Hierarchy
+
+=== SLIDE 25 ===
+Detailed Test Design And Test Specifications 
+The ultimate goal of test management is to get the test cases executed. Till now, test planning has not provided the test cases to be executed.Detailed test designing for each validation activity maps the requirements or features to the actual test cases to be executed. One way to map the features to their test cases is to analyse the following:1. Requirement traceability2. Design traceability3. Code traceability
+
+=== SLIDE 26 ===
+Test Design Specification 
+A test design specification should have the following components according to IEEE recommendation:Identifier A unique identifier is assigned to each test design specification with a reference to its associated test plan.Features to be tested The features or requirements to be tested are listed with reference to the items mentioned in SRS/SDD.Approach refinements In the test plan, an approach to overall testing was discussed. Here, further details are added to the approach. For example, special testing techniques to be used for generating test cases are explained.
+
+=== SLIDE 27 ===
+Test Design Specification 
+Test case identification The test cases to be executed for a particular feature/ function are identified here, as shown in Table 1. Moreover, test procedures are also identified. 
+Table 1. Traceability matrix
+
+=== SLIDE 28 ===
+Test Design Specification 
+The test cases contain input/output information and the test procedures contain the necessary steps to execute the tests. Each test design specification is associated with test cases and test procedures. A test case may be associated with more than one test design specifications.
+
+=== SLIDE 29 ===
+Test Design Specification 
+Feature pass/fail criteria The criteria for determining whether the test for a feature has passed or failed, is described.
+
+=== SLIDE 30 ===
+Test Case Specifications 
+Since the test design specifications have recognized the test cases to be executed,  there is a need to define the test cases with complete specifications.The test case specification document provides the actual values for input with expected outputs. One test case can be used for many design specifications and may be re-used in other situations. A test case specification should have the following components according to IEEE recommendation:
+
+=== SLIDE 31 ===
+Test Case Specifications 
+Test case specification identifier A unique identifier is assigned to each test case specification with a reference to its associated test plan.Purpose The purpose of designing and executing the test case should be mentioned here. It refers to the functionality you want to check with this test case.
+
+=== SLIDE 32 ===
+Test Case Specifications 
+Test items needed List the references to related documents that describe the items and features, e.g. SRS, SDD, and user manual.Special environmental needs In this component, any special requirement in the form of hardware or software is recognized. Any requirement of tool may also be specified.
+
+=== SLIDE 33 ===
+Test Case Specifications 
+Special procedural requirements Describe any special condition or constraint to run the test case, if any.Inter-case dependencies There may be a situation that some test cases are dependent on each other. Therefore, previous test cases which should be run prior to the current test case must be specified.
+
+=== SLIDE 34 ===
+Test Case Specifications 
+Input specifications This component specifies the actual inputs to be given while executing a test case. The important thing while specifying the input values is		- not to generalize the values, rather specific values should be provided. For example, if the input is in angle, then the angle should not be specified as a range between 0 and 360, but a specific value like 233 should be specified. If there is any relationship between two or more input values, it should also be specified.
+
+=== SLIDE 35 ===
+Test Case Specifications 
+Test procedure The step-wise procedure for executing the test case is described here.Output specifications Whether a test case is successful or not is decided after comparing the output specifications with the actual outputs achieved.Therefore, the output should be mentioned complete in all respects. As in the case of input specifications, output specifications should also be provided in specific values.
+
+=== SLIDE 36 ===
+Example 
+There is a system for railway reservation system. There are many functionalities in the system, as given below:
+
+=== SLIDE 37 ===
+Test specification to ‘view reservation status’
+
+=== SLIDE 38 ===
+Test Procedure Specifications 
+A test procedure is a sequence of steps required to carry out a test case or a specific task. This can be a separate document or merged with a test case specification.
+
+=== SLIDE 39 ===
+Test Result Specifications
+
+=== SLIDE 40 ===
+Test Result Specifications 
+Test LogTest log is a record of the testing events that take place during the test. Test log is helpful for bug repair or regression testing. The developer gets valuable clues from this test log, as it provides snapshots of failures.
+
+=== SLIDE 41 ===
+Test Result Specifications 
+Format for preparing a test log according to IEEE:Test log identifierDescription - Mention the items to be tested, their version number, and the environment in which testing is being performed.
+
+=== SLIDE 42 ===
+Test Result Specifications 
+Activity & event entries - Mention the followings:(i) Date(ii) Author of the test(iii) Test case ID(iv) Name the personnel involved in testing(v) For each execution, record the results and mention pass/fail status(vi) Report any anomalous unexpected event, before or after the execution
+
+=== SLIDE 43 ===
+Sample test log for Example
+
+=== SLIDE 44 ===
+Test Result Specifications 
+Test Incident ReportThis is a form of bug report. It is the report about any unexpected event duringtesting which needs further investigation to resolve the bug. Therefore, this report completely describes the execution of the event. It not only reports the problem that has occurred but also compares the expected output with the actual results.
+
+=== SLIDE 45 ===
+Test Result Specifications 
+Components of a test incident report Test incident report identifier Summary - Identify the test items involved, test cases/procedures, &the test log associated with this test.
+
+=== SLIDE 46 ===
+Test Result Specifications 
+Incident description - It describes the followings:(i) Date and time(ii) Testing personnel names(iii) Environment(iv) Testing inputs(v) Expected outputs(vi) Actual outputs(vii) Anomalies detected during the test(viii) Attempts to repeat the same test
+
+=== SLIDE 47 ===
+Test Result Specifications 
+Impact - The originator of this report will assign a severity value/rank to this incident so that the developer may know the impact of this problem and debug the critical problem first.
+
+=== SLIDE 48 ===
+Sample test incident report for Example
+
+=== SLIDE 49 ===
+Test Result Specifications 
+Test Summary ReportIt is basically an evaluation report prepared when the testing is over. It is the summary of all the tests executed for a specific test design specification. It can provide the measurement of how much testing efforts have been applied for the test. It also becomes a historical database for future projects, as it provides information about the particular type of bugs observed.
+
+=== SLIDE 50 ===
+Test Result Specifications 
+A test summary report contains the following components:1.  Test summary report identifier2.  Description Identify the test items being reported in this report with the test case/procedure ID.3. Variances Mention any deviation from the test plans, test procedures, if any.
+
+=== SLIDE 51 ===
+Test Result Specifications 
+Comprehensive statement The originator of this report compares the comprehensiveness of the testing efforts made with the test plans. It describes what has been tested according to the plan and what has not been covered.
+
+=== SLIDE 52 ===
+Test Result Specifications 
+Summary of results All the results are mentioned here with the resolved incidents and their solutions.Unresolved incidents are also reported.Evaluation Mention the status of the test results. If the status is fail,  then mention its impact and severity level.
+
+=== SLIDE 53 ===
+Test Result Specifications 
+Summary of activities All testing execution activities and events are mentioned with resource consumption, actual task durations, etc.Approvals List the names of the persons who approve this document with their signatures and dates.
+
+=== SLIDE 54 ===
+Test summary report for Example
+
+=== SLIDE 55 ===
+Summary 
+Discussed the key elements of test management.Presented the structure of testing group.Explained the details of test planning.Discussed detailed test design and test specifications.Presented various testing reports such asTest logTest incidence reportTest summary report 
+55
+
+=== SLIDE 56 ===
+References  
+Naresh Chauhan, Software Testing: Principles and Practices, (Chapter – 9), Second Edition, Oxford University Press,  2016.
+
+=== SLIDE 57 ===
+Thank you
+

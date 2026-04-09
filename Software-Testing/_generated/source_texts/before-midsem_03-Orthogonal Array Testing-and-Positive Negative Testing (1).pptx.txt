@@ -1,0 +1,194 @@
+﻿
+=== SLIDE 1 ===
+Orthogonal Array Testing  
+Dr. Durga Prasad MohapatraProfessorCSE DepartmentNIT Rourkela
+
+=== SLIDE 2 ===
+Orthogonal Array Testing  
+Orthogonal Arrays are two dimensional arrays of numbers that have the attractive feature that by selecting any two columns in the array, an even distribution of all pairwise combinations of values in the array can be achieved.
+
+=== SLIDE 3 ===
+Example 
+In the following table, after selecting first two columns, we get four ordered pairs namely (0,0), (1,1), (0,1) and (1,0).  These pairs form all the possible ordered pairs of two-element set and each ordered pair appears exactly once.
+
+=== SLIDE 4 ===
+EXAMPLE 
+We obtain same values when selecting second and third or first and third column combination. An array exhibiting this feature is known as orthogonal array.
+
+=== SLIDE 5 ===
+Orthogonal Array Testing 
+Orthogonal arrays can be used in software testing for pairwise interactions. It provides uniformly distributed coverage for all variable pairwise combinations.It is commonly used for integration testing like testing of object-oriented systems, where multiple subclasses  can be substituted as the server for a client.
+
+=== SLIDE 6 ===
+Orthogonal Array Testing 
+It is a black-box testing technique.OATS is used when the input to the system to be tested are low, but if exhaustive testing is used then it is not possible to test completely every input of the system.100% OATS implies 100% pairwise testing.OATS can be used for testing combinations of configurable options like a webpage that allows the other user to select:
+
+=== SLIDE 7 ===
+Configurable options - Example 
+Font style;Font color;Back ground Color;Page layout;Etc.
+
+=== SLIDE 8 ===
+Steps to use OATS 
+Step 1:  Identify the independent variables that are to be used for interaction.  These will be mapped as “factor” (f) of array.Step 2: Identify the maximum number of values, which each variable will take. These will be mapped as “levels” (p) of the array.Step 3: Search for an orthogonal array that has all factors from Step 1 and all levels from Step 2.
+
+=== SLIDE 9 ===
+Steps to use OATS 
+Step 4: Map all the factors and levels with your requirements.Translate them into suitable test cases.Look out for any special test cases.If we have 3 variables (parameters) that have 3 values, then the possible number of test cases using conventional technique is 3*3*3=27. But, if OATS is used, then the number of test cases will be 9.
+
+=== SLIDE 10 ===
+Example 1 
+Consider a scenario in which we need to derive test cases for a web page of a research paper that has four different sections:(a) Abstract(b) Related work(c) Proposed work(d) Conclusion
+
+=== SLIDE 11 ===
+Example 1 
+The four sections can be individually shown or hidden to the user or show error message. Thus it is required to design the test condition to test interaction between different sections.
+
+=== SLIDE 12 ===
+Solution 
+Step 1: Number of independent variables or factors = 4.Step 2: Value that each independent variable can take = 3 values (shown, hidden or error message).Step 3: Orthogonal array would be 32 .Step 4: The appropriate orthogonal array for 4 factors and 3 levels is shown in the table.
+
+=== SLIDE 13 ===
+Solution
+
+=== SLIDE 14 ===
+Solution 
+Step 5: Now, map the table with our requirements.1 will  represent “Shown” value.2 will represent “Hidden” value.3 will represent “Error Message” value.Factor A will represent “Abstract” section.Factor B will represent “Related Work” section.Factor C will represent “Proposed Work” section.
+
+=== SLIDE 15 ===
+Solution 
+Factor D will represent “Conclusion” section.Experiment will represent “Test Case #”.Step 6: After mapping, the table will look like:
+
+=== SLIDE 16 ===
+Solution
+
+=== SLIDE 17 ===
+Positive Testing 
+Positive testing tries to prove that a given product does what it is supposed to do.Positive Testing is testing process where the system is validated against the valid input data. In this testing tester always check for only valid set of values and check if an application behaves as expected with its expected inputs.
+
+=== SLIDE 18 ===
+Positive Testing     cont … 
+The main intention of this testing is to check whether software application not showing error when not supposed to and showing error when supposed to. Such testing is to be carried out keeping positive point of view and only execute the positive scenario.When a test case verifies the requirements of the product with a set of expected output, it is called positive test case.
+
+=== SLIDE 19 ===
+Positive Testing                cont … 
+The purpose of positive testing is to prove that the product works as per specification and expectations.A product delivering an error when it is expected to give an error, is also a part of positive testing.Positive testing can thus be said to check the product’s behaviour for positive and negative conditions as stated in the requirement.
+
+=== SLIDE 20 ===
+Example of Positive testing 
+Consider a scenario where you want to test an application which contains a simple textbox to enter age and requirements say that it should take only integer values. So here provide only positive integer values to check whether it is working as expected or not is the Positive Testing. Most of the applications developers implement Positive scenarios where testers get less defects count around positive testing.
+
+=== SLIDE 21 ===
+Another example 
+Let us take a lock and key. We do not know how the levers in the lock work, but we only know the set of inputs (the number of keys, specific sequence of using the keys and the direction of turn of each key) and the expected outcome (locking and unlocking). For example, if a key is turned clockwise it should unlock and if turned anticlockwise it should lock.To use the lock one need not understand how they work. However, it is essential to know the external functionality of the lock and key system. Some of the functionality that you need to know to use the lock are given as follows.
+
+=== SLIDE 22 ===
+Some functionalities to use the lock
+
+=== SLIDE 23 ===
+Sample requirements specification for lock and key system
+
+=== SLIDE 24 ===
+Example of positive test cases
+
+=== SLIDE 25 ===
+Example of positive test condition for positive testing 
+Take the first row in the table.When the lock is in an unlocked state and you use key 123-456 and turn it clockwise, the expected outcome is to get it locked.During test execution, if the test results in locking, then the test is passed.
+
+=== SLIDE 26 ===
+Example of negative test condition for positive testing 
+In the fifth row of the table, the lock is in locked state.Using a hairpin and turning it clockwise should not cause a change in state or cause any damage to the lock.On test execution, if there are no changes, then this positive test case is passed.
+
+=== SLIDE 27 ===
+Negative Testing 
+Negative testing is done to show that the product does not fail when an unexpected input is given.The purpose of negative testing is to try and break the system.Negative testing covers scenarios for which the product is not designed and coded.
+
+=== SLIDE 28 ===
+Negative Testing    cont … 
+In other words, the input values may not have been represented in the specification of the product.These test conditions can be termed as unknown conditions for the product as far as the specifications are concerned.But, at the end-user level, there are multiple scenarios that are encountered and that need to be taken care of by the product.
+
+=== SLIDE 29 ===
+Negative Testing               cont … 
+It becomes even more important for the tester to know the negative situations that may occur at the end-user level so that the application can be tested and made fool proof.A negative test would be a product not delivering an error when it should or delivering an error when it should not.
+
+=== SLIDE 30 ===
+Negative Testing         cont … 
+Negative Testing is testing process where the system is validated against the invalid input data. A negative test checks if an application behaves as expected with its negative inputs. The main intention of this testing is to check whether software application not showing error when supposed to and showing error when not supposed to.
+
+=== SLIDE 31 ===
+Negative Testing          cont … 
+Such testing is to be carried out keeping negative point of view and only execute the test cases for only invalid set of input data.Negative testing is a testing process to identify the inputs where system is not designed or un-handled inputs by providing different invalid inputs.
+
+=== SLIDE 32 ===
+Negative Testing                   cont … 
+The main reason behind Negative testing is to check the stability of the software application against the influences of different variety of incorrect validation data set.The Negative testing helps to improve the testing coverage of your software application under test. Both positive and negative testing approaches are equally important for making your application more reliable and stable.
+
+=== SLIDE 33 ===
+Example of Negative Testing 
+Consider a textbox example which should accept only integer values. So here provide the characters like “abcd” in the age textbox and check the behavior of application, either it should show a validation error message for all invalid inputs (for all other than integer values) or system should not allow to enter a non integer values.
+
+=== SLIDE 34 ===
+Example of negative test cases 
+In the above table, there are no requirement numbers, this is because negative testing focuses on test conditions that lie outside the specification.Since all the test conditions are outside the specification, they cannot be categorized as positive and negative test conditions.Some people consider all of them as negative test conditions, which is technically correct.
+
+=== SLIDE 35 ===
+Positive and negative testing scenarios 
+If the requirement is saying that password text field should accepts 6 – 20 characters and only alphanumeric characters.Positive Test ScenariosPassword textbox should accept 6 charactersPassword textbox should up to 20 charactersPassword textbox should accepts any value in between 6-20 chars length.Password textbox should accepts all numeric and alphabets values.Negative Test scenariosPassword textbox should not accept less than 6 charactersPassword textbox should not exceeds more than 20 charactersPassword textbox should not accept special characters
+
+=== SLIDE 36 ===
+Positive and Negative Test Scenarios with Example 
+Suppose, you are doing the testing on a login form which has following fields like Username, Password, and Sign In, Sign Up, Cancel, Login Button etc.Now positive scenario of login form is that you enter the valid username and password in the username and password field, and then click on Login Button to check whether the user is able to login or not. Negative scenario of login form is that you leave the password field blank and fill the username field, and then click on Login Button to check whether the user is able to login or not.
+
+=== SLIDE 37 ===
+Consideration for both the testing 
+In both the testing, following needs to be considered: Input dataAction which needs to be performedOutput Result
+
+=== SLIDE 38 ===
+Testing Technique used for Positive and Negative Testing 
+Following techniques are used for Positive and negative validation of testing:  Boundary Value Analysis Equivalence Partitioning
+
+=== SLIDE 39 ===
+Boundary Value Analysis 
+This is one of the software testing technique in which the test cases are designed to include values at the  boundary. If the input data is used within the boundary value limits, then it is said to be Positive Testing. If the input data is picked outside the boundary value limits, then it is said to be Negative Testing.
+
+=== SLIDE 40 ===
+Example 
+A system can accept the numbers from 0 to 10 numeric values. All other numbers are invalid values. Under this technique , boundary values 0 , 10 and -10 will be tested.
+
+=== SLIDE 41 ===
+Equivalence Partitioning 
+This is a software testing technique which divides the input data into many partitions.Values from each partition must be tested at least once.  Partitions with valid values are used for Positive Testing. While partitions with invalid values are used for negative testing.
+
+=== SLIDE 42 ===
+Example 
+Numeric values Zero to ten can be divided to two( or three )partition. In our case we have two partitions -10 to -1  and  0 to 10. Sample values (5 and -5) can be taken from each part to test the scenarios.
+
+=== SLIDE 43 ===
+Difference between positive and negative testing 
+For positive testing if all documented requirements and test conditions are covered, then coverage can be considered to be 100 percent.If the specifications are very clear, then coverage can be achieved.In contrast, there is no end to negative testing and 100 percent coverage in negative testing is impractical.Negative testing requires a high degree of creativity among the testers to cover as many “unknowns” as possible to avoid failure at a customer site.
+
+=== SLIDE 44 ===
+Top Distinctions between Positive & Negative Testing
+
+=== SLIDE 45 ===
+ERROR GUESSING 
+Error guessing is the preferred method used when  all other methods fail.Sometimes error guessing is used to test some special cases.Error guessing is a very practical case wherein the tester uses his intuition, experience,  knowledge of project, bug history and makes a guess about where the bug can be.Basic idea is to make a list of possible errors in error prone situations and then develop the test cases. No general procedure for this tech exists. It is an adhoc process.
+
+=== SLIDE 46 ===
+Example - Special cases in the roots of a quadratic equation 
+What will happen when a=0 in the quadratic equation?    -   Though, we do consider this case,      there are chances that we may overlook it while testing, as it has two cases: 	i) If a=0 then the equation is no longer quadratic.	ii) For calculation of roots, the division is by zero. So, we may overlook.
+
+=== SLIDE 47 ===
+What will happen when all the inputs are negative? What will happen when the inputs list is empty?
+
+=== SLIDE 48 ===
+Summary 
+Discussed Orthogonal Array Testing. Explained Positive and Negative Testing with suitable examples.Presented Error Guessing. 
+48
+
+=== SLIDE 49 ===
+References  
+Naresh Chauhan, Software Testing: Principles and Practices, (Chapter – 4), Second Edition, Oxford University Press,  2016.
+
+=== SLIDE 50 ===
+Thank you
+
